@@ -32,9 +32,9 @@ heapq 可以用来做topk，o(n)时间
 - 66题，可以用字符串，也可以先用`x*10+y`算成数字再处理，值得一提的是在
 	```
 	reduce(lambda x,y: x*10+y, digits)
-	```  
-	中是选digits中第一第二个元素，再开始迭代第三个第四个  
-	`reduce`在3.0中被转移了需要，
+	```
+	中是选digits中第一第二个元素，再开始迭代第三个第四个
+	`reduce`在3.0中被转移了需要,
 	```
 	from functools import reduce
 	```
