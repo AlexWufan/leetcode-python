@@ -11,7 +11,7 @@
 	`reduce`在3.0中被转移了需要重新引入
 	```
 	from functools import reduce
-	```
+	```  
 ##11.1
 - 118和119题，杨辉三角，需要判断好边界值，119用O(k) space,在一行上面迭代
 
