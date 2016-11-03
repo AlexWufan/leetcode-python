@@ -23,8 +23,6 @@ if __name__=='__main__':
 	print(aSolution.majorityElement([1,2,3,4,1,1,1,1,1]))
 
 
-
-
 # 不太好的方法，linear time，但是需要空间
 # return collections.Counter(nums).most_common(1)[0][0]
 

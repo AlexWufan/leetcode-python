@@ -8,10 +8,11 @@ class Solution(object):
         	if n == 0:
         		nums.remove(n)
         		nums.append(0)
+        # return nums
 
 if __name__ == '__main__':
 	aSolution = Solution()
-	print(aSolution.moveZeroes([0, 1, 0, 3, 12]))
+	print(aSolution.moveZeroes([0, 1, 0, 0, 3, 12,0]))
 
 
 
