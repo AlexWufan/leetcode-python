@@ -11,7 +11,7 @@ class Solution(object):
         	d[x] = d.get(x, 0) + 1
         return sorted(d.keys(), key=lambda x: d[x], reverse=True)[0:k]
 
-        return collections.Counter(nums).most_commen(k)
+        # return [i[0] for i in collections.Counter(nums).most_commen(k)]
 
 if __name__=='__main__':
     asolution = Solution()

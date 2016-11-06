@@ -52,13 +52,14 @@ class Solution(object):
         d = {}
         start = 0
         for i in range(len(s)):
-        	if s[i] in d:
+        	if s[i] in d and start <= d[s[i]]:
         		start = d[s[i]] + 1
-        	else:
-        		d[s[i]] = i 
-        	if i-start>m:
-        		m = i-start
+        	d[s[i]] = i 
+        	if i-start+1>m:
+        		m = i-start+1
+        	else: continue
         return m
+
 
 
 
