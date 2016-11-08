@@ -11,3 +11,30 @@ class Solution(object):
         :type root: TreeNode
         :rtype: bool
         """
+        return self.isValid(root,float('-inf'),float('inf'))
+    
+    def isValid(self, node, minimum, maximum):   
+        if not node:
+    		return True
+    	if node.val < minimum and node.val > maximum:
+    		return False
+    	return self.isValid(node.left, minimum, node.val) and self.isValid(node.right,node.val, maximum)
+
+
+
+# 遍历。有一种是
+
+
+
+
+
+
+
+# from discuss. Very short
+	def isValidBST(self, root, floor=float('-inf'), ceiling=float('inf')):
+	    if not root: 
+	        return True
+	    if root.val <= floor or root.val >= ceiling:
+	        return False
+	    # in the left branch, root is the new ceiling; contrarily root is the new floor in right branch
+	    return self.isValidBST(root.left, floor, root.val) and self.isValidBST(root.right, root.val, ceiling)
