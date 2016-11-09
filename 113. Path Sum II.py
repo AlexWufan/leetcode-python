@@ -23,10 +23,8 @@ class Solution(object):
         if not root.left and not root.right and root.val == sum:
         	path.append(root.val)
         	res.append(path)
-        if root.left:
-        	self.findPath(root.left, sum-root.val, path+root.val, res)
-        if root.right:
-        	self.findPath(root.right, sum-root.val, path+root.val, res)
+        self.findPath(root.left, sum-root.val, path+[root.val], res)
+        self.findPath(root.right, sum-root.val, path+[root.val], res)
 
 
 
