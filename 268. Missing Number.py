@@ -19,11 +19,11 @@ if __name__ == '__main__':
 	aSolution  = Solution()
 	print(aSolution.missingNumber([1,0]))
 
-# # 求和
-# def missingNumber(self, nums):
-#     n = len(nums)
-#     return n * (n+1) / 2 - sum(nums)
+# 求和
+def missingNumber(self, nums):
+    n = len(nums)
+    return n * (n+1) / 2 - sum(nums)
 
-# # set
-# def missingNumber(self, nums):
-#     return (set(range(len(nums)+1)) - set(nums)).pop()
+# set
+def missingNumber(self, nums):
+    return (set(range(len(nums)+1)) - set(nums)).pop()

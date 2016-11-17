@@ -29,7 +29,6 @@ class Solution(object):
 
 
 
-
 # from discuss. Very short
 	def isValidBST(self, root, floor=float('-inf'), ceiling=float('inf')):
 	    if not root: 

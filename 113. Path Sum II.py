@@ -29,7 +29,7 @@ class Solution(object):
 
 
 
-# 还可以计算出每一条路径的和，再筛选，但是还是不明白如何存储的？
+# 还可以计算出每一条路径的和，再筛选，从下到上返回所以顺序是对的
 	def pathSum(self, root, sum):
 	    if not root:
 	        return []
