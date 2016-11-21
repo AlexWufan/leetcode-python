@@ -50,6 +50,7 @@ class Solution(object):
         	if node.right:
         		stack.append(node.right)
         return res
+        
 #BFS using queue
 	def sumOfLeftLeaves(self, root):
 	        """
