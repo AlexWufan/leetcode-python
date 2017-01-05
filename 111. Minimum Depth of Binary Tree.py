@@ -6,10 +6,12 @@
 #         self.right = None
 
 class Solution(object):
-    def maxDepth(self, root):
+    def minDepth(self, root):
         """
         :type root: TreeNode
         :rtype: int
         """
-        if root is None: return 0
-        return 1+ max(self.maxDepth(root.left), self.maxDepth(root.right))
+        if not root: return 0
+        if not root.left or not root.right:
+        	return max(minDepth(root.left), minDepth(root.right))+1
+        else: return min(self.minDepth(root.left), self.minDepth(root.right))+1
