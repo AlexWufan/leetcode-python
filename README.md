@@ -9,6 +9,9 @@
 - 114题，Flattern Binary Tree,把BST压平。
  + 第一种做法是用递归，先把左右子树递归压平。再把右子树连接到左子树后面,再把左子树连接到`root.right`,最后把`root.left = None`. 
  + 第二种做法，叫 Morris traversal，非常有趣，做法是把左子树连接到`root.right`，然后找到左子树中最右边的结点，把右子树连接上去，然后再把左子树连接到`root.right`,然后`root = root.right` 一个个循环下去。空间复杂度O(1),时间复杂度O(n).厉害了
+- 105和106题，Constuct Binary Tree from Preorder and Inorder/Inorder and Postorder Traversal。这两题[水中的鱼](http://fisherlei.blogspot.com)<http://fisherlei.blogspot.com/2013/01/leetcode-construct-binary-tree-from.html> 有详细的解释。主要原理就是利用前序/后序遍历找到`root`，然后根据`root`分割`inoder`,然后递归左右子树。唯一一点要说的是`Python`写的中间切片操作会生成新的数组，导致MLE或者一些奇怪的bug,所以最好用`self._build_tree(inorder, low_in, high_in, postorder, low_post, high_post)`
+
+
 
 
 ##1.5
