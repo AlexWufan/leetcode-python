@@ -4,6 +4,7 @@
 ##1.11
 - 417题，Pacific Atlantic Water Flow,这题用DFS, 反向从边上往中间迭代，能到达的标记为True,分别维护两个矩阵一个P一个A,最后如果两个矩阵同一个位置都是True那么这个点是。
 - 329题，Longest Increasing Path in a Matrix. 这题跟417题很像，对每一个点进行dfs，维护一个cache来记录长度，需要注意的是在dfs这个函数里面的计数，要保证记录最长长度，就要用`max()`函数来维护。这道hard题总的来说还是不难的。
+- 101题， Symmetric Tree, 这题用递归，分别验证`root`左右值，然后递归左右节点。或者用`level order traversal`也可以，用`list`和反转之后的`list`比较，或者用`stack`，一次`append`一个`tuple`,验证是否相等或者是否都为空。
 
 ##1.7
 - 109题，两种方法
