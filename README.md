@@ -2,7 +2,7 @@
 #记录一些刷题细节，很惭愧只做了一点微小的工作
 
 ##2.6
-- 337题， House Robber III, 还是dp，但这次是树，递归的时候巧妙的使用了一个tulpe，来记录前面的最优解。挺难的。要想一会才能明白。[这个解法](https://discuss.leetcode.com/topic/39846/easy-to-understand-java/3很不错。
+- 337题， House Robber III, 还是dp，但这次是树，递归的时候巧妙的使用了一个tulpe，来记录前面的最优解。挺难的。要想一会才能明白。[这个解法](https://discuss.leetcode.com/topic/39846/easy-to-understand-java/3)很不错。
 
 ##2.5
 - 213题，House Robber II, 同样是dp，需要转换成House Robber I来做，因为第一个和最后一个不能同时抢，所以分成两个子问题，一个是`nums[0]~nums[n-2]`,另一个是`nums[1]~nums[n-1]`，然后`max`一下，需要特别注意的就是边界值。
