@@ -3,7 +3,7 @@
 
 ##2.6
 - 337题， House Robber III, 还是dp，但这次是树，递归的时候巧妙的使用了一个tuple，来记录前面的最优解。挺难的。要想一会才能明白。[这个解法](https://discuss.leetcode.com/topic/39846/easy-to-understand-java/3)很不错。
-- 236题，Lowest Common Ancestor of a Binary Tree,可以用递归来解决，递归寻找两个带查询LCA的节点`p`和`q`，当找到后，返回给它们的父亲。如果某个节点的左右子树分别包括这两个节点，那么这个节点必然是所求的解，返回该节点。否则，返回左或者右子树（哪个包含`p`或者`q`的就返回哪个）。java解法的一个小trick：
+- 236题，Lowest Common Ancestor of a Binary Tree,可以用递归来解决，递归寻找两个带查询LCA的节点`p`和`q`，当找到后，返回给它们的父亲。如果某个节点的左右子树分别包括这两个节点，那么这个节点必然是所求的解，返回该节点。否则，返回左或者右子树（哪个包含`p`或者`q`的就返回哪个）。java解法的一个小trick:  
 	`return left==null? right : right == null? left: root;`
 
 ##2.5
