@@ -5,6 +5,8 @@
 - 337题， House Robber III, 还是dp，但这次是树，递归的时候巧妙的使用了一个tuple，来记录前面的最优解。挺难的。要想一会才能明白。[这个解法](https://discuss.leetcode.com/topic/39846/easy-to-understand-java/3)很不错。
 - 236题，Lowest Common Ancestor of a Binary Tree,可以用递归来解决，递归寻找两个带查询LCA的节点`p`和`q`，当找到后，返回给它们的父亲。如果某个节点的左右子树分别包括这两个节点，那么这个节点必然是所求的解，返回该节点。否则，返回左或者右子树（哪个包含`p`或者`q`的就返回哪个）。java解法的一个小trick:
     `return left==null? right : right == null? left: root;`
+- 20题，Valid Parentheses，用栈，对于前括号一律把对应的后括号进栈，这样实际上字符串里对应的后括号和栈里的是一致的，不一样就返回`False`。java中`stack`是`vector`的延伸，性能上不好，用`deque`来代替`stack`比较好.
+- 48题，Rotate Image，先上下交换再沿对角线交换。注意边界值避免重复交换，Python的解法比较多，妙用`zip(*)`可以实现对角线交换。`matrix[:]`可以直接inpalce修改。
 
 ##2.5
 - 213题，House Robber II, 同样是dp，需要转换成House Robber I来做，因为第一个和最后一个不能同时抢，所以分成两个子问题，一个是`nums[0]~nums[n-2]`,另一个是`nums[1]~nums[n-1]`，然后`max`一下，需要特别注意的就是边界值。
