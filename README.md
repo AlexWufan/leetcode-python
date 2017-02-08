@@ -3,14 +3,15 @@
 
 ##2.7
 - 387. First Unique Character in a String, Python的解法很简单，过一遍字母表就可以，存储`index`，输出最小的`index`时间复杂度是O(n)。比较好的解是用hash表对每个字符统计出现次数，然后再根据字符串顺序输出次数为1的字符，但是字符串太长，我们要找的字母在字符串最后，就会浪费很多效率，所以最优解是在hash存字符出现次数的时候同时存`index`，就可以实现只扫一遍。c++可以用`std::pair`实现。
-- 459. Repeated Substring Pattern. Python的做法是把两个`str`连接起来，去头去尾，然后在这个长的链接`str`里面寻找本来的字符串`str`,`find()`方法还能返回`index`. 直接判断可以用`in`，可以做到一行。`return str in (str+str)[1:-1]`,比较一般的做法是KMP算法,时间复杂度应该是O(n)。参见<http://www.ruanyifeng.com/blog/2013/05/Knuth–Morris–Pratt_algorithm.html>. 还可以用试除数的方法，复杂度worst case是O(n^2).
+- 459. Repeated Substring Pattern. Python的做法是把两个`str`连接起来，去头去尾，然后在这个长的链接`str`里面寻找本来的字符串`str`,`find()`方法还能返回`index`. 直接判断可以用`in`，可以做到一行。  
+`return str in (str+str)[1:-1]`,比较一般的做法是KMP算法,时间复杂度应该是O(n)。参见<http://www.ruanyifeng.com/blog/2013/05/Knuth–Morris–Pratt_algorithm.html>. 还可以用试除数的方法，复杂度worst case是O(n^2).
 - 155. Min Stack，正常写法，因为要求`getMin()`O(1)的查询速度，所以要牺牲空间来维护最小值，[这里]<http://stackoverflow.com/questions/685060/design-a-stack-such-that-getminimum-should-be-o1>说的很清楚，如果`getMin()`是O(1)，那么当`pop()`出去的如果是最小值，那么`pop()`会变成O(n),而且再`push()`的时候也是O(n),如果用tuple(或者另一个ministack)来存储值的话会增加空间。所以基本上都是trade-off. java的写法要使用一个栈的话必须`push`两次，一次记录当前的`min`,一次记录`x`，还可以优化为只有更新`min`的时候才把`min`进栈。
 
 
 ##2.6
 - 337题， House Robber III, 还是dp，但这次是树，递归的时候巧妙的使用了一个tuple，来记录前面的最优解。挺难的。要想一会才能明白。[这个解法](https://discuss.leetcode.com/topic/39846/easy-to-understand-java/3)很不错。
-- 236题，Lowest Common Ancestor of a Binary Tree,可以用递归来解决，递归寻找两个带查询LCA的节点`p`和`q`，当找到后，返回给它们的父亲。如果某个节点的左右子树分别包括这两个节点，那么这个节点必然是所求的解，返回该节点。否则，返回左或者右子树（哪个包含`p`或者`q`的就返回哪个）。java解法的一个小trick:
-    `return left==null? right : right == null? left: root;`
+- 236题，Lowest Common Ancestor of a Binary Tree,可以用递归来解决，递归寻找两个带查询LCA的节点`p`和`q`，当找到后，返回给它们的父亲。如果某个节点的左右子树分别包括这两个节点，那么这个节点必然是所求的解，返回该节点。否则，返回左或者右子树（哪个包含`p`或者`q`的就返回哪个）。java解法的一个小trick:  
+`return left==null? right : right == null? left: root;`
 - 20题，Valid Parentheses，用栈，对于前括号一律把对应的后括号进栈，这样实际上字符串里对应的后括号和栈里的是一致的，不一样就返回`False`。java中`stack`是`vector`的延伸，性能上不好，用`deque`来代替`stack`比较好.
 - 48题，Rotate Image，先上下交换再沿对角线交换。注意边界值避免重复交换，Python的解法比较多，妙用`zip(*)`可以实现对角线交换。`matrix[:]`可以直接inpalce修改。
 
