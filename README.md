@@ -3,6 +3,9 @@
 
 
 ##2.8
+- 109题，两种方法
+ + 第一种是快慢指针，时间复杂度O(nlgn)。用慢指针找到`inorder`的中点，分别对两边进行递归。中间要切断一些边。
+ + 第二种是Bottom-up方法，用index来表示中点，一层层递归下去，先选最左边的结点，然后接到root上，然后接上右边的，整个过程是从下往上合并。因为先计算长度size，O(n)时间，然后`inorder reconstruction`,时间O(n)，所以总体时间是O(n). Space 是constant space所以是O(1) space.
 - 138. Copy List with Random Pointer.
  + 首先，在原链表的每个节点后面都插入一个新节点，新节点的内容和前面的节点一样。比如上图，1后面插入1，2后面插入2，依次类推。
  + 其次，原链表中的random指针如何映射呢？比如上图中，1节点的random指针指向3，4节点的random指针指向2。如果有一个tmp指针指向1（蓝色），则一条语句：tmp.next.random = tmp.random.next；就可以解决这个问题。
