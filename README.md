@@ -3,7 +3,7 @@
 
 
 ##2.8
-- 138. Copy List with Random Pointer.![](http://images.cnitblog.com/i/627993/201405/221027256064414.jpg)
+- 138 Copy List with Random Pointer.![](http://images.cnitblog.com/i/627993/201405/221027256064414.jpg)
  + 首先，在原链表的每个节点后面都插入一个新节点，新节点的内容和前面的节点一样。比如上图，1后面插入1，2后面插入2，依次类推。
 
  + 其次，原链表中的random指针如何映射呢？比如上图中，1节点的random指针指向3，4节点的random指针指向2。如果有一个tmp指针指向1（蓝色），则一条语句：tmp.next.random = tmp.random.next；就可以解决这个问题。
