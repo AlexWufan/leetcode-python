@@ -3,11 +3,12 @@
 
 
 ##2.8
-
+- 380. Insert Delete GetRandom O(1). In interview setting, it's perfectly reasonable to assume hash table add/delete operations are O(1). 这题需要实现O(1)的时间复杂度， 插入的需要用一个dict来存index，在删除的时候把最后一个元素跟删除的交换，pop掉最后一个，更新dict里的index。或者也可以用python自带的set数据结构来实现，但是就有种骑马找马的感觉了。java的写法中，ArrayList的`contains`方法时间复杂度是O(n)，所以这里要查询`Hashmap`来判断是否存在`val`. 这里对性能很关键。[这里](http://infotechgems.blogspot.com/2011/11/java-collections-performance-time.html)是java中数据结构的时间复杂度。
 - 138. Copy List with Random Pointer.![](http://images.cnitblog.com/i/627993/201405/221027256064414.jpg)
  + 首先，在原链表的每个节点后面都插入一个新节点，新节点的内容和前面的节点一样。比如上图，1后面插入1，2后面插入2，依次类推。
  + 其次，原链表中的random指针如何映射呢？比如上图中，1节点的random指针指向3，4节点的random指针指向2。如果有一个tmp指针指向1（蓝色），则一条语句：tmp.next.random = tmp.random.next；就可以解决这个问题。
  + 第三步，将新的链表从上图这样的链表中拆分出来。
+另外用字典也可以做。字典会导致space complexity编程O(n). time complexity都是O(n).
 
 
 ##2.7
