@@ -1,6 +1,9 @@
 ####刷题笔记
 #记录一些刷题细节，很惭愧只做了一点微小的工作
 
+##2.12
+- 17. Letter Combinations of a Phone Number，这题有点难，本来想用Python的`zip`但是写不出来，看了答案比较一般的做法是用回溯，back-tracking,比如[这里](https://discuss.leetcode.com/topic/37976/fast-backtracking-easy-to-understand-with-explanations)巧妙解法有用迭代一次次出队列再入队列。查看`peek()`的长度实现过一遍所有元素的方法。
+
 ##2.11
 - 5. Longest Palindromic Substring. 这题两种做法,
  + 一种是按部就班的dp，状态转移方程是`P(i,j)=P(i+1,j-1) and S(i)=S(j)`,初始条件，`P(i,i) = True`和`P(i,i+1) = True`.用二维数组来存`True`or`False`,从长度为2的字符串往后面枚举，更新最大长度。时间复杂度O(n^2),空间O(n^2).
