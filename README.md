@@ -2,7 +2,7 @@
 #记录一些刷题细节，很惭愧只做了一点微小的工作
 
 ##2.12
-- 17. Letter Combinations of a Phone Number，这题有点难，本来想用Python的`zip`但是写不出来，看了答案比较一般的做法是用回溯，back-tracking,比如[这里](https://discuss.leetcode.com/topic/37976/fast-backtracking-easy-to-understand-with-explanations)巧妙解法有用迭代一次次出队列再入队列。查看`peek()`的长度实现过一遍所有元素的方法。
+- 17. Letter Combinations of a Phone Number，这题有点难，本来想用Python的`zip`但是写不出来，看了答案比较一般的做法是用回溯，back-tracking,比如[这里](https://discuss.leetcode.com/topic/37976/fast-backtracking-easy-to-understand-with-explanations). 巧妙解法有用迭代一次次出队列再入队列。查看`peek()`的长度实现过一遍所有元素的方法。
 
 ##2.11
 - 5. Longest Palindromic Substring. 这题两种做法,
