@@ -1,6 +1,11 @@
 ####刷题笔记
 #记录一些刷题细节，很惭愧只做了一点微小的工作
 
+##2.11
+- 5. Longest Palindromic Substring. 这题两种做法,
+ + 一种是按部就班的dp，状态转移方程是`P(i,j)=P(i+1,j-1) and S(i)=S(j)`,初始条件，`P(i,i) = True`和`P(i,i+1) = True`.用二维数组来存`True`or`False`,从长度为2的字符串往后面枚举，更新最大长度。时间复杂度O(n^2),空间O(n^2).
+ + 另一种是选n-1个中间节点，从中间往两边拓展，分别对奇数和偶数两种讨论，更新`low`位置和最大长度`maxLen`，下标很容易搞错，amazon的重点题。时间复杂度O(n^2),空间复杂度O(1).
+ + 还有一种更厉害的解法叫Manacher算法，时间复杂度O(n), 空间复杂度O(n)。不做讨论了。比较复杂。
 
 ##2.8
 - 380. Insert Delete GetRandom O(1). In interview setting, it's perfectly reasonable to assume hash table add/delete operations are O(1). 这题需要实现O(1)的时间复杂度， 插入的需要用一个dict来存index，在删除的时候把最后一个元素跟删除的交换，pop掉最后一个，更新dict里的index。或者也可以用python自带的set数据结构来实现，但是就有种骑马找马的感觉了。java的写法中，ArrayList的`contains`方法时间复杂度是O(n)，所以这里要查询`Hashmap`来判断是否存在`val`. 这里对性能很关键。[这里](http://infotechgems.blogspot.com/2011/11/java-collections-performance-time.html)是java中数据结构的时间复杂度。
