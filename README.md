@@ -3,6 +3,13 @@
 
 ##2.12
 - 17. Letter Combinations of a Phone Number，这题有点难，本来想用Python的`zip`但是写不出来，看了答案比较一般的做法是用回溯，back-tracking,比如[这里](https://discuss.leetcode.com/topic/37976/fast-backtracking-easy-to-understand-with-explanations). 巧妙解法有用迭代一次次出队列再入队列。查看`peek()`的长度实现过一遍所有元素的方法。
+- 516. Longest Palindromic Subsequence. 跟5非常的相似，区别在于必须要满足序列这个要求。方法也是dp，状态转移方程，  
+`dp[i][j]`: the longest palindromic subsequence's length of substring(i, j)  
+State transition:  
+`dp[i][j] = dp[i+1][j-1] + 2 if s.charAt(i) == s.charAt(j)`  
+otherwise, `dp[i][j] = Math.max(dp[i+1][j], dp[i][j-1])`  
+Initialization: `dp[i][i]` = 1  
+Python会TLE.
 
 ##2.11
 - 5. Longest Palindromic Substring. 这题两种做法,
