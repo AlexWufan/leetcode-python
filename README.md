@@ -1,6 +1,11 @@
 ####刷题笔记
 #记录一些刷题细节，很惭愧只做了一点微小的工作
 
+##2.13
+- 223. Rectangle Areaz. 这题非常简单，只需要判断overlap是否存在。
+- 461. Hamming Distance. Bit manipulation, 这题用内置的Python/java 中的 `bin()` 或者 `Integer.bitCount()`即可. 效率做法是 `xor = xor &(xor - 1)`,可以迭代最少的次数。
+- 476. Number Complement. Bit manipulation, 这题先造出一个`1111111`的数，然后与`num`异或即可，如何造出这个111111呢？java可以 `(Integer.highestOneBit(num) << 1) - 1`, python可以用1一只`<<`然后-1.
+
 ##2.12
 - 17. Letter Combinations of a Phone Number，这题有点难，本来想用Python的`zip`但是写不出来，看了答案比较一般的做法是用回溯，back-tracking,比如[这里](https://discuss.leetcode.com/topic/37976/fast-backtracking-easy-to-understand-with-explanations). 巧妙解法有用迭代一次次出队列再入队列。查看`peek()`的长度实现过一遍所有元素的方法。
 - 516. Longest Palindromic Subsequence. 跟5非常的相似，区别在于必须要满足序列这个要求。方法也是dp，状态转移方程，  
