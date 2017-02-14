@@ -4,7 +4,8 @@
 ##2.13
 - 223. Rectangle Areaz. 这题非常简单，只需要判断overlap是否存在。
 - 461. Hamming Distance. Bit manipulation, 这题用内置的Python/java 中的 `bin()` 或者 `Integer.bitCount()`即可. 效率做法是 `xor = xor &(xor - 1)`,可以迭代最少的次数。
-- 476. Number Complement. Bit manipulation, 这题先造出一个`1111111`的数，然后与`num`异或即可，如何造出这个111111呢？java可以 `(Integer.highestOneBit(num) << 1) - 1`, python可以用1一只`<<`然后-1.
+- 476. Number Complement. Bit manipulation, 这题先造出一个`1111111`的数，然后与`num`异或即可，如何造出这个`111111`呢？java可以 `(Integer.highestOneBit(num) << 1) - 1`, python可以用1一直`<<`然后-1.
+- 500. Keyboard Row, 这题用的自己的写法，效率挺高的，主要就是建立一个`hashmap`来存储每个字母所在的行数，然后对每个word对每个letter查询，如果和每个word的第一个不一样，就下一个word.`res.toArray(new String[0])`来把`ArrayList`转换为`String`.
 
 ##2.12
 - 17. Letter Combinations of a Phone Number，这题有点难，本来想用Python的`zip`但是写不出来，看了答案比较一般的做法是用回溯，back-tracking,比如[这里](https://discuss.leetcode.com/topic/37976/fast-backtracking-easy-to-understand-with-explanations). 巧妙解法有用迭代一次次出队列再入队列。查看`peek()`的长度实现过一遍所有元素的方法。
