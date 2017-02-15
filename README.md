@@ -1,6 +1,12 @@
 ####刷题笔记
 #记录一些刷题细节，很惭愧只做了一点微小的工作
 
+##2.14
+- 285. Inorder Successor in BST. 这题的解法是比较`root.val`和`p.val`的大小，考虑两种情况：
+ + 第一种，`root.val > p.val`这种情况下 `root`是可能作为`p`的successor的，所以把res的值更新为root，然后往左边查找。
+ + 第二种，`root.val <= p.val`, 这种情况下，`root`事不可能作为`p`的seccesor的，左子树也不可能，只有往右边找，`root = root.right`.
+最后迭代到`root = None`,这时候返回`res`就可以了。这题递归的方法也可以做，比较难以理解。
+
 ##2.13
 - 223. Rectangle Areaz. 这题非常简单，只需要判断overlap是否存在。
 - 461. Hamming Distance. Bit manipulation, 这题用内置的Python/java 中的 `bin()` 或者 `Integer.bitCount()`即可. 效率做法是 `xor = xor &(xor - 1)`,可以迭代最少的次数。

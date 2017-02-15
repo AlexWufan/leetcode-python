@@ -11,6 +11,7 @@ class Solution(object):
         	d[x] = d.get(x, 0) + 1
         return sorted(d.keys(), key=lambda x: d[x], reverse=True)[0:k]
 
+        # return zip(*collections.Counter(nums).most_common(k))[0]
         # return [i[0] for i in collections.Counter(nums).most_commen(k)]
 
 if __name__=='__main__':
