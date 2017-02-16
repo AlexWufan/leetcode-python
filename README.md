@@ -1,6 +1,9 @@
 ####刷题笔记
 #记录一些刷题细节，很惭愧只做了一点微小的工作
 
+##2.15
+- 75. Sort Colors. in place, 设置三个指针`start, end, i`, 然后`i < end`和`i > start`的时候`swap`就可以。还有种解法比较难理解，就是 We keep a loop invariant that [0,i) [i, j) [j, k) are 0s, 1s and 2s sorted in place for [0,k).
+
 ##2.14
 - 285. Inorder Successor in BST. 这题的解法是比较`root.val`和`p.val`的大小，考虑两种情况：
  + 第一种，`root.val > p.val`这种情况下 `root`是可能作为`p`的successor的，所以把res的值更新为root，然后往左边查找。
