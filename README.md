@@ -5,6 +5,7 @@
 - 496. Next Greater Element I. 这道题非常适合面试。
  + 首先很容易想到一个`O(m*n)`的解法，对`nums`建立一个hashmap,存每个元素的`index`,然后遍历`findNums`，找对应的`index`，再往后找`greater number`，这个虽然简单，但是有个边界值非常需要注意，第一种是j遍历到最后，还是没找到，这时候`append(-1)`,还有一种就是到最后了，找到了，这时候不加`-1`，还需要注意循环体的边界，如果`dic[n]+1 == len(nums)`循环体是不执行的。
  + 第二种是时间复杂度`O(m+n)`,直接对`nums`建一个hashmap，`key`是每一个`number`，`value`直接是`greater element`,怎么实现呢，需要用一个栈，维护一个递减的序列，For example `[9, 8, 7, 3, 2, 1, 6]`, the stack will first contain `[9, 8, 7, 3, 2, 1]` and then we see `6` which is greater than `1`, so we pop `1 2 3` whose next greater element should be `6`. 最后直接查询`findNums`的每一个元素，返回对用的`next greater element`或者 `-1`.
+- 503. Next Greater Element II. 是496的follow up. 一样的思路，除了最基本的`O(n^2)`方法之外，还有两种方法都是用栈，一种使用`(index, number)`作为`key`，存储 greater number,注意进栈的时候，只对`i<len(nums)`的元素进栈。第二种做法是只存`index`,初始化一个`[-1*n]`的数组，其他的一样。
 
 ##2.15
 - 75. Sort Colors. in place, 设置三个指针`start, end, i`, 然后`i < end`和`i > start`的时候`swap`就可以。还有种解法比较难理解，就是 We keep a loop invariant that [0,i) [i, j) [j, k) are 0s, 1s and 2s sorted in place for [0,k).
