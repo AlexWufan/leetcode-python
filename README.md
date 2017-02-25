@@ -1,9 +1,14 @@
 ####刷题笔记
 #记录一些刷题细节，很惭愧只做了一点微小的工作
 
+##2.24
+- 366. Find Leaves of Binary Tree. 分别对左右子树递归，从下到上遍历每个节点，典型的`bottom-up`解法，记录每个节点的高度h,根据`h` remove leave. 时间和空间都是O(n).
+- 346. Moving Average from Data Stream. 有一种简便做法是用collections里的deque，设定`maxlen = size`.另外用`slice`会导致速度慢，可以直接用长度为`size`的中间变量`list`，存储,然后更新。
+- 
 
 ##2.23
 - 338. Counting Bits. 倒过来想，一个数 `*2` 就是把它的二进制全部左移一位，也就是说`1`的个数是相等的. 那么我们可以利用这个结论来做,`res[i /2]`然后看看最低位是否为`1`即可`(i & 1)`,(上面`*2`一定是偶数，这边比如15和14除以2都是7，但是15时通过7左移一位并且`+1`得到，14则是直接左移),所以res[i] = res[i >>1] + (i&1)
+- 359. Logger Rate Limiter. 题目看上去很复杂，其实很简单。用一个`hashmap`就可以解决。可能的follow up可能有，比如消息很多，不需要存储很少出现的消息以节省空间，这时候可以用一个队列存消息，另一个`hashmap`存时间，实现小空间。
 
 ##2.21
 - 419. Battleships in a Board. 这题有个窍门，就是既然战船是一条状的，可以只数船头，那么船头只要符合`board[i][j] == 'X' and (i == 0 or board[i-1][j] == '.') and (j == 0 or board[i][j-1] == '.')`就可以。其他方法还有经典的flood fill algorithm,用dfs或者bfs.
