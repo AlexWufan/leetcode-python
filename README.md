@@ -1,9 +1,18 @@
 ####刷题笔记
 #记录一些刷题细节，很惭愧只做了一点微小的工作
 
+
+##3.8
+- 413. Arithmetic Slices. DP问题。
+- 535. Encode and Decode TinyURL. 设计模式问题，主要就是使用`random`和`string`生成6位的随机字符串，用两个`hashmap`来存长短对应关系。用`hashmap`可以很好的解决重用问题.
+
+##2.26
+- 406. Queue Reconstruction by Height. 先排最高的，然后排第二高的，一个个插入，`index`就是自带的`index`. 用`lambda`表达式可以简化排序.
+
 ##2.25
 - 280. Wiggle Sort.这题看起来复杂，其实只需要维护一个`小大小大小大`的顺序就行了，只需要对奇偶两种情况讨论，交换`nums[i-1]`和`nums[i]`即可。这里不需要对`i=0`进行特殊讨论是因为在`i=1`的时候把`0`概括进去了。
 - 324. Wiggle Sort II . 这题很难，因为必须大小交错，出现相等的情况交换前后元素的方法就不管用了。Python的做法比较简单，固定排序顺序，倒序之后交错插入。另外一种解法，用中位数， `(1 + 2*index) % (n | 1)`可以把`index[0,1,2,3,4,5]`映射为`[1,3,5,0,2,4]`.  然后把`mapped`的`index`交错排回去.
+- 513. Find Bottom Left Tree Value. 可以用队列也可以用递归。队列可以用`level-order traversal`，从右往左，最后一个node就是我们要找的。或者用递归，记录树高，出现更高的就更新`res = node.val`.
 
 ##2.24
 - 366. Find Leaves of Binary Tree. 分别对左右子树递归，从下到上遍历每个节点，典型的`bottom-up`解法，记录每个节点的高度h,根据`h` remove leave. 时间和空间都是O(n).
