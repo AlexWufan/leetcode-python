@@ -2,6 +2,9 @@
 #记录一些刷题细节，很惭愧只做了一点微小的工作
 
 
+##5.8
+- 
+
 ##3.8
 - 413. Arithmetic Slices. DP问题。
 - 535. Encode and Decode TinyURL. 设计模式问题，主要就是使用`random`和`string`生成6位的随机字符串，用两个`hashmap`来存长短对应关系。用`hashmap`可以很好的解决重用问题.
