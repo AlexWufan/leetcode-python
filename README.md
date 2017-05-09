@@ -6,55 +6,55 @@
 - 
 
 ##3.8
-- 413. Arithmetic Slices. DP问题。
-- 535. Encode and Decode TinyURL. 设计模式问题，主要就是使用`random`和`string`生成6位的随机字符串，用两个`hashmap`来存长短对应关系。用`hashmap`可以很好的解决重用问题.
+- 413题. Arithmetic Slices. DP问题。
+- 535题. Encode and Decode TinyURL. 设计模式问题，主要就是使用`random`和`string`生成6位的随机字符串，用两个`hashmap`来存长短对应关系。用`hashmap`可以很好的解决重用问题.
 
 ##2.26
-- 406. Queue Reconstruction by Height. 先排最高的，然后排第二高的，一个个插入，`index`就是自带的`index`. 用`lambda`表达式可以简化排序.
+- 406题. Queue Reconstruction by Height. 先排最高的，然后排第二高的，一个个插入，`index`就是自带的`index`. 用`lambda`表达式可以简化排序.
 
 ##2.25
-- 280. Wiggle Sort.这题看起来复杂，其实只需要维护一个`小大小大小大`的顺序就行了，只需要对奇偶两种情况讨论，交换`nums[i-1]`和`nums[i]`即可。这里不需要对`i=0`进行特殊讨论是因为在`i=1`的时候把`0`概括进去了。
-- 324. Wiggle Sort II . 这题很难，因为必须大小交错，出现相等的情况交换前后元素的方法就不管用了。Python的做法比较简单，固定排序顺序，倒序之后交错插入。另外一种解法，用中位数， `(1 + 2*index) % (n | 1)`可以把`index[0,1,2,3,4,5]`映射为`[1,3,5,0,2,4]`.  然后把`mapped`的`index`交错排回去.
-- 513. Find Bottom Left Tree Value. 可以用队列也可以用递归。队列可以用`level-order traversal`，从右往左，最后一个node就是我们要找的。或者用递归，记录树高，出现更高的就更新`res = node.val`.
+- 280题. Wiggle Sort.这题看起来复杂，其实只需要维护一个`小大小大小大`的顺序就行了，只需要对奇偶两种情况讨论，交换`nums[i-1]`和`nums[i]`即可。这里不需要对`i=0`进行特殊讨论是因为在`i=1`的时候把`0`概括进去了。
+- 324题. Wiggle Sort II . 这题很难，因为必须大小交错，出现相等的情况交换前后元素的方法就不管用了。Python的做法比较简单，固定排序顺序，倒序之后交错插入。另外一种解法，用中位数， `(1 + 2*index) % (n | 1)`可以把`index[0,1,2,3,4,5]`映射为`[1,3,5,0,2,4]`.  然后把`mapped`的`index`交错排回去.
+- 513题. Find Bottom Left Tree Value. 可以用队列也可以用递归。队列可以用`level-order traversal`，从右往左，最后一个node就是我们要找的。或者用递归，记录树高，出现更高的就更新`res = node.val`.
 
 ##2.24
-- 366. Find Leaves of Binary Tree. 分别对左右子树递归，从下到上遍历每个节点，典型的`bottom-up`解法，记录每个节点的高度h,根据`h` remove leave. 时间和空间都是O(n).
-- 346. Moving Average from Data Stream. 有一种简便做法是用collections里的deque，设定`maxlen = size`.另外用`slice`会导致速度慢，可以直接用长度为`size`的中间变量`list`，存储,然后更新。
-- 266. Palindrome Permutation. 用`set`数据结构即可。还可以用`Counter`,还可以用`bitset`.
+- 366题. Find Leaves of Binary Tree. 分别对左右子树递归，从下到上遍历每个节点，典型的`bottom-up`解法，记录每个节点的高度h,根据`h` remove leave. 时间和空间都是O(n).
+- 346题. Moving Average from Data Stream. 有一种简便做法是用collections里的deque，设定`maxlen = size`.另外用`slice`会导致速度慢，可以直接用长度为`size`的中间变量`list`，存储,然后更新。
+- 266题. Palindrome Permutation. 用`set`数据结构即可。还可以用`Counter`,还可以用`bitset`.
 
 ##2.23
-- 338. Counting Bits. 倒过来想，一个数 `*2` 就是把它的二进制全部左移一位，也就是说`1`的个数是相等的. 那么我们可以利用这个结论来做,`res[i /2]`然后看看最低位是否为`1`即可`(i & 1)`,(上面`*2`一定是偶数，这边比如15和14除以2都是7，但是15时通过7左移一位并且`+1`得到，14则是直接左移),所以res[i] = res[i >>1] + (i&1)
-- 359. Logger Rate Limiter. 题目看上去很复杂，其实很简单。用一个`hashmap`就可以解决。可能的follow up可能有，比如消息很多，不需要存储很少出现的消息以节省空间，这时候可以用一个队列存消息，另一个`hashmap`存时间，实现小空间。
+- 338题. Counting Bits. 倒过来想，一个数 `*2` 就是把它的二进制全部左移一位，也就是说`1`的个数是相等的. 那么我们可以利用这个结论来做,`res[i /2]`然后看看最低位是否为`1`即可`(i & 1)`,(上面`*2`一定是偶数，这边比如15和14除以2都是7，但是15时通过7左移一位并且`+1`得到，14则是直接左移),所以res[i] = res[i >>1] + (i&1)
+- 359题. Logger Rate Limiter. 题目看上去很复杂，其实很简单。用一个`hashmap`就可以解决。可能的follow up可能有，比如消息很多，不需要存储很少出现的消息以节省空间，这时候可以用一个队列存消息，另一个`hashmap`存时间，实现小空间。
 
 ##2.21
-- 419. Battleships in a Board. 这题有个窍门，就是既然战船是一条状的，可以只数船头，那么船头只要符合`board[i][j] == 'X' and (i == 0 or board[i-1][j] == '.') and (j == 0 or board[i][j-1] == '.')`就可以。其他方法还有经典的flood fill algorithm,用dfs或者bfs.
+- 419题. Battleships in a Board. 这题有个窍门，就是既然战船是一条状的，可以只数船头，那么船头只要符合`board[i][j] == 'X' and (i == 0 or board[i-1][j] == '.') and (j == 0 or board[i][j-1] == '.')`就可以。其他方法还有经典的flood fill algorithm,用dfs或者bfs.
 
 ##2.20
-- 496. Next Greater Element I. 这道题非常适合面试。
+- 496题. Next Greater Element I. 这道题非常适合面试。
  + 首先很容易想到一个`O(m*n)`的解法，对`nums`建立一个hashmap,存每个元素的`index`,然后遍历`findNums`，找对应的`index`，再往后找`greater number`，这个虽然简单，但是有个边界值非常需要注意，第一种是j遍历到最后，还是没找到，这时候`append(-1)`,还有一种就是到最后了，找到了，这时候不加`-1`，还需要注意循环体的边界，如果`dic[n]+1 == len(nums)`循环体是不执行的。
  + 第二种是时间复杂度`O(m+n)`,直接对`nums`建一个hashmap，`key`是每一个`number`，`value`直接是`greater element`,怎么实现呢，需要用一个栈，维护一个递减的序列，For example `[9, 8, 7, 3, 2, 1, 6]`, the stack will first contain `[9, 8, 7, 3, 2, 1]` and then we see `6` which is greater than `1`, so we pop `1 2 3` whose next greater element should be `6`. 最后直接查询`findNums`的每一个元素，返回对用的`next greater element`或者 `-1`.
-- 503. Next Greater Element II. 是496的follow up. 一样的思路，除了最基本的`O(n^2)`方法之外，还有两种方法都是用栈,循环体中的边界用`2*n`,然后`i%n`来把头尾接起来。一种使用`(index, number)`作为`key`，存储 greater number,注意进栈的时候，只对`i<len(nums)`的元素进栈。第二种做法是只存`index`,初始化一个`[-1*n]`的数组，其他的一样。
+- 503题. Next Greater Element II. 是496的follow up. 一样的思路，除了最基本的`O(n^2)`方法之外，还有两种方法都是用栈,循环体中的边界用`2*n`,然后`i%n`来把头尾接起来。一种使用`(index, number)`作为`key`，存储 greater number,注意进栈的时候，只对`i<len(nums)`的元素进栈。第二种做法是只存`index`,初始化一个`[-1*n]`的数组，其他的一样。
 
 ##2.15
-- 75. Sort Colors. in place, 设置三个指针`start, end, i`, 然后`i < end`和`i > start`的时候`swap`就可以。还有种解法比较难理解，就是 We keep a loop invariant that [0,i) [i, j) [j, k) are 0s, 1s and 2s sorted in place for [0,k).
+- 75题. Sort Colors. in place, 设置三个指针`start, end, i`, 然后`i < end`和`i > start`的时候`swap`就可以。还有种解法比较难理解，就是 We keep a loop invariant that [0,i) [i, j) [j, k) are 0s, 1s and 2s sorted in place for [0,k).
 
 ##2.14
-- 285. Inorder Successor in BST. 这题的解法是比较`root.val`和`p.val`的大小，考虑两种情况：
+- 285题. Inorder Successor in BST. 这题的解法是比较`root.val`和`p.val`的大小，考虑两种情况：
  + 第一种，`root.val > p.val`这种情况下 `root`是可能作为`p`的successor的，所以把res的值更新为root，然后往左边查找。
  + 第二种，`root.val <= p.val`, 这种情况下，`root`事不可能作为`p`的seccesor的，左子树也不可能，只有往右边找，`root = root.right`.
 最后迭代到`root = None`,这时候返回`res`就可以了。这题递归的方法也可以做，比较难以理解。
 
 ##2.13
-- 223. Rectangle Areaz. 这题非常简单，只需要判断overlap是否存在。
-- 461. Hamming Distance. Bit manipulation, 这题用内置的Python/java 中的 `bin()` 或者 `Integer.bitCount()`即可. 效率做法是 `xor = xor &(xor - 1)`,可以迭代最少的次数。
-- 476. Number Complement. Bit manipulation, 这题先造出一个`1111111`的数，然后与`num`异或即可，如何造出这个`111111`呢？java可以 `(Integer.highestOneBit(num) << 1) - 1`, python可以用1一直`<<`然后-1.
-- 500. Keyboard Row, 这题用的自己的写法，效率挺高的，主要就是建立一个`hashmap`来存储每个字母所在的行数，然后对每个word对每个letter查询，如果和每个word的第一个不一样，就下一个word.`res.toArray(new String[0])`来把`ArrayList`转换为`String`.
-- 339. Nested List Weight Sum. 可以用迭代或者递归，保存`depth`,比较简单。
+- 223题. Rectangle Areaz. 这题非常简单，只需要判断overlap是否存在。
+- 461题. Hamming Distance. Bit manipulation, 这题用内置的Python/java 中的 `bin()` 或者 `Integer.bitCount()`即可. 效率做法是 `xor = xor &(xor - 1)`,可以迭代最少的次数。
+- 476题. Number Complement. Bit manipulation, 这题先造出一个`1111111`的数，然后与`num`异或即可，如何造出这个`111111`呢？java可以 `(Integer.highestOneBit(num) << 1) - 1`, python可以用1一直`<<`然后-1.
+- 500题. Keyboard Row, 这题用的自己的写法，效率挺高的，主要就是建立一个`hashmap`来存储每个字母所在的行数，然后对每个word对每个letter查询，如果和每个word的第一个不一样，就下一个word.`res.toArray(new String[0])`来把`ArrayList`转换为`String`.
+- 339题. Nested List Weight Sum. 可以用迭代或者递归，保存`depth`,比较简单。
 
 
 ##2.12
-- 17. Letter Combinations of a Phone Number，这题有点难，本来想用Python的`zip`但是写不出来，看了答案比较一般的做法是用回溯，back-tracking,比如[这里](https://discuss.leetcode.com/topic/37976/fast-backtracking-easy-to-understand-with-explanations). 巧妙解法有用迭代一次次出队列再入队列。查看`peek()`的长度实现过一遍所有元素的方法。
-- 516. Longest Palindromic Subsequence. 跟5非常的相似，区别在于必须要满足序列这个要求。方法也是dp，状态转移方程，  
+- 17题. Letter Combinations of a Phone Number，这题有点难，本来想用Python的`zip`但是写不出来，看了答案比较一般的做法是用回溯，back-tracking,比如[这里](https://discuss.leetcode.com/topic/37976/fast-backtracking-easy-to-understand-with-explanations). 巧妙解法有用迭代一次次出队列再入队列。查看`peek()`的长度实现过一遍所有元素的方法。
+- 516题. Longest Palindromic Subsequence. 跟5非常的相似，区别在于必须要满足序列这个要求。方法也是dp，状态转移方程，  
 `dp[i][j]`: the longest palindromic subsequence's length of substring(i, j)  
 State transition:  
 `dp[i][j] = dp[i+1][j-1] + 2 if s.charAt(i) == s.charAt(j)`  
@@ -63,14 +63,14 @@ Initialization: `dp[i][i]` = 1
 Python会TLE.
 
 ##2.11
-- 5. Longest Palindromic Substring. 这题两种做法,
+- 5题. Longest Palindromic Substring. 这题两种做法,
  + 一种是按部就班的dp，状态转移方程是`P(i,j)=P(i+1,j-1) and S(i)=S(j)`,初始条件，`P(i,i) = True`和`P(i,i+1) = True`.用二维数组来存`True`or`False`,从长度为2的字符串往后面枚举，更新最大长度。时间复杂度O(n^2),空间O(n^2).
  + 另一种是选n-1个中间节点，从中间往两边拓展，分别对奇数和偶数两种讨论，更新`low`位置和最大长度`maxLen`，下标很容易搞错，amazon的重点题。时间复杂度O(n^2),空间复杂度O(1).
  + 还有一种更厉害的解法叫Manacher算法，时间复杂度O(n), 空间复杂度O(n)。不做讨论了。比较复杂。
 
 ##2.8
-- 380. Insert Delete GetRandom O(1). In interview setting, it's perfectly reasonable to assume hash table add/delete operations are O(1). 这题需要实现O(1)的时间复杂度， 插入的需要用一个dict来存index，在删除的时候把最后一个元素跟删除的交换，pop掉最后一个，更新dict里的index。或者也可以用python自带的set数据结构来实现，但是就有种骑马找马的感觉了。java的写法中，ArrayList的`contains`方法时间复杂度是O(n)，所以这里要查询`Hashmap`来判断是否存在`val`. 这里对性能很关键。[这里](http://infotechgems.blogspot.com/2011/11/java-collections-performance-time.html)是java中数据结构的时间复杂度。
-- 138. Copy List with Random Pointer.![](http://images.cnitblog.com/i/627993/201405/221027256064414.jpg)
+- 380题. Insert Delete GetRandom O(1). In interview setting, it's perfectly reasonable to assume hash table add/delete operations are O(1). 这题需要实现O(1)的时间复杂度， 插入的需要用一个dict来存index，在删除的时候把最后一个元素跟删除的交换，pop掉最后一个，更新dict里的index。或者也可以用python自带的set数据结构来实现，但是就有种骑马找马的感觉了。java的写法中，ArrayList的`contains`方法时间复杂度是O(n)，所以这里要查询`Hashmap`来判断是否存在`val`. 这里对性能很关键。[这里](http://infotechgems.blogspot.com/2011/11/java-collections-performance-time.html)是java中数据结构的时间复杂度。
+- 138题. Copy List with Random Pointer.![](http://images.cnitblog.com/i/627993/201405/221027256064414.jpg)
  + 首先，在原链表的每个节点后面都插入一个新节点，新节点的内容和前面的节点一样。比如上图，1后面插入1，2后面插入2，依次类推。
  + 其次，原链表中的random指针如何映射呢？比如上图中，1节点的random指针指向3，4节点的random指针指向2。如果有一个tmp指针指向1（蓝色），则一条语句：tmp.next.random = tmp.random.next；就可以解决这个问题。
  + 第三步，将新的链表从上图这样的链表中拆分出来。
@@ -78,11 +78,11 @@ Python会TLE.
 
 
 ##2.7
-- 387. First Unique Character in a String, Python的解法很简单，过一遍字母表就可以，存储`index`，输出最小的`index`时间复杂度是O(n)。比较好的解是用hash表对每个字符统计出现次数，然后再根据字符串顺序输出次数为1的字符，但是字符串太长，我们要找的字母在字符串最后，就会浪费很多效率，所以最优解是在hash存字符出现次数的时候同时存`index`，就可以实现只扫一遍。c++可以用`std::pair`实现。
-- 459. Repeated Substring Pattern. Python的做法是把两个`str`连接起来，去头去尾，然后在这个长的链接`str`里面寻找本来的字符串`str`,`find()`方法还能返回`index`. 直接判断可以用`in`，可以做到一行。  
+- 387题. First Unique Character in a String, Python的解法很简单，过一遍字母表就可以，存储`index`，输出最小的`index`时间复杂度是O(n)。比较好的解是用hash表对每个字符统计出现次数，然后再根据字符串顺序输出次数为1的字符，但是字符串太长，我们要找的字母在字符串最后，就会浪费很多效率，所以最优解是在hash存字符出现次数的时候同时存`index`，就可以实现只扫一遍。c++可以用`std::pair`实现。
+- 459题. Repeated Substring Pattern. Python的做法是把两个`str`连接起来，去头去尾，然后在这个长的链接`str`里面寻找本来的字符串`str`,`find()`方法还能返回`index`. 直接判断可以用`in`，可以做到一行。  
 `return str in (str+str)[1:-1]`  
 比较一般的做法是KMP算法,时间复杂度应该是O(n)。参见<http://www.ruanyifeng.com/blog/2013/05/Knuth–Morris–Pratt_algorithm.html>. 还可以用试除数的方法，复杂度worst case是O(n^2).
-- 155. Min Stack，正常写法，因为要求`getMin()`O(1)的查询速度，所以要牺牲空间来维护最小值，[这里](http://stackoverflow.com/questions/685060/design-a-stack-such-that-getminimum-should-be-o1)说的很清楚，如果`getMin()`是O(1)，那么当`pop()`出去的如果是最小值，那么`pop()`会变成O(n),而且再`push()`的时候也是O(n),如果用tuple(或者另一个ministack)来存储值的话会增加空间。所以基本上都是trade-off. java的写法要使用一个栈的话必须`push`两次，一次记录当前的`min`,一次记录`x`，还可以优化为只有更新`min`的时候才把`min`进栈。
+- 155题. Min Stack，正常写法，因为要求`getMin()`O(1)的查询速度，所以要牺牲空间来维护最小值，[这里](http://stackoverflow.com/questions/685060/design-a-stack-such-that-getminimum-should-be-o1)说的很清楚，如果`getMin()`是O(1)，那么当`pop()`出去的如果是最小值，那么`pop()`会变成O(n),而且再`push()`的时候也是O(n),如果用tuple(或者另一个ministack)来存储值的话会增加空间。所以基本上都是trade-off. java的写法要使用一个栈的话必须`push`两次，一次记录当前的`min`,一次记录`x`，还可以优化为只有更新`min`的时候才把`min`进栈。
 
 
 ##2.6
