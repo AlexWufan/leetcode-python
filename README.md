@@ -2,8 +2,20 @@
 #记录一些刷题细节，很惭愧只做了一点微小的工作
 
 
-##5.12
-- 39题. Combination Sum. 
+##5.17
+- 216题, Combination Sum III. 这题还是backtracking， 一样的模版。只需要每次都全部循环即可。
+- 377题, Combination Sum IV. 这题可以用backtracking，但是会MLE，因为path这个需要大量的内存，所以只能用DP做，状态转移方程`comb[target] = sum(comb[target - nums[i]]), where 0 <= i < nums.length, and target >= nums[i].` Base case `comb[0] = 1`这里有点不明白。在中间过程中，说明`target = nums[i]`,说明只有这一种情况，所以设置为1。
+- 78题,Subsets. 一样的模版。另外一种解法是`bit manipulation`。不会。
+- 90题. Subsets II. 跟`Combination Sum II.`一样，去重即可.
+- 46题, Permutations, 一样的模版。
+- 47题, Permutations II, 不同之处在于去重，用一个used的数组存一下。不用backtracking的话还有别的解法。不懂！！
+
+##5.16
+- 39题. Combination Sum. backtracking问题，排序可以提升性能。在循环内部判断剪枝。剪枝就像是get rid of a subtree.
+- 40题. Combination Sum II. 跟39跟相似，两个区别是递归的时候从`i+1`开始，和验证是否是重复元素，这个很关键，去重是横向的不是纵向的，而且是，大于，而不是大于等于，所以`1,1,6`这种可以过，两个`1`不会重复。剪枝很关键，非常提高性能.
+
+##5.13
+- 278题. First Bad Version. 二分法，注意边界值.`(left + right) / 2`和`left + (right - left) / 2`区别在于`left + right` may cause the Integer Overflow, meaning that `left+right` > 2147483647.
 
 
 ##5.11
