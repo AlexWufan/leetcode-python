@@ -9,6 +9,10 @@
 - 90题. Subsets II. 跟`Combination Sum II.`一样，去重即可.
 - 46题, Permutations, 一样的模版。
 - 47题, Permutations II, 不同之处在于去重，用一个used的数组存一下。不用backtracking的话还有别的解法。不懂！！
+- 131题. Palindrome Partitioning. 同一个模版，需要写个函数判断是否是Palindrome。
+- 246题. Strobogrammatic Number. 哈希表存一下对称的，然后比较一下即可。
+- 247题. Strobogrammatic Number II. 考虑奇偶情况，结合递归，排列组合.
+- 447题. Number of Boomerangs. 用哈希表存距离,求和。
 
 ##5.16
 - 39题. Combination Sum. backtracking问题，排序可以提升性能。在循环内部判断剪枝。剪枝就像是get rid of a subtree.
