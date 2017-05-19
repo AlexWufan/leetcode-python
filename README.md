@@ -1,6 +1,10 @@
 ####刷题笔记
 #记录一些刷题细节，很惭愧只做了一点微小的工作
 
+##5.18
+- 561题. Array Partition I. 排序切片求和。
+- 566题. Reshape the Matrix. `res[i/c][i%c] = nums[i/m][i%m]`
+- 575题. Distribute Candies. Python可以用`set`一行解决。
 
 ##5.17
 - 216题, Combination Sum III. 这题还是backtracking， 一样的模版。只需要每次都全部循环即可。
