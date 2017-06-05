@@ -1,6 +1,14 @@
 ####刷题笔记
 #记录一些刷题细节，很惭愧只做了一点微小的工作
 
+##6.4
+- 521题. Longest Uncommon Subsequence I. 这题就是用来搞笑的。相等就返回`-1`，不想等就返回max(len(a),len(b)).
+- 522题. Longest Uncommon Subsequence II. 先降序排序，再对每一个比较。其中用到了迭代器.
+- 606题. Construct String from Binary Tree.
+
+##5.19
+- 557题. Reverse Words in a String III. 用`x[::-1]`一行。
+
 ##5.18
 - 561题. Array Partition I. 排序切片求和。
 - 566题. Reshape the Matrix. `res[i/c][i%c] = nums[i/m][i%m]`
