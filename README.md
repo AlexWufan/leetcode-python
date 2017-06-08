@@ -1,10 +1,38 @@
 ####刷题笔记
 #记录一些刷题细节，很惭愧只做了一点微小的工作
 
+##6.8
+- 
+
+
+
+
+
+##6.7
+- 477题. Total Hamming Distance.这题跟260题类似，思路就是对于每一个位上，有`p`个`1`和`n-p`个`0`，会产生`p*(n-p)`个distance，对于32位每个位跑一边加起来就可以了。
+- 191题. Number of 1 Bits. 无符号类型，java需要用`>>>`,`n&=(n-1)`或者`n = n&(n-1)`可以每次把最右边置0，知道全部是0.或者就每次`n&1`,然后>>>1。还可以`return Integer.bitCount(n);`
+- 137题. Single Number II. 巧妙的办法，<https://discuss.leetcode.com/topic/2031/challenge-me-thx>.
+- 231题. Power of Two. `n&(n-1)`可以移除最右边(最低位)的`0`，如果是power of 2就只有1位是`1`，所以可以用`return (n>0 && !(n&(n-1)))`，Jave里`!`不能用在`int`类型上。
+- 342题. Power of Four.`return num > 0 && (num&(num-1)) == 0 && (num & 0x55555555) != 0;`.`0x5555555`是所有奇数位上是1的数.用它来保证是4的power，还可以用`(num-1)%3 == 0`来保证。
+- 405题. Convert a Number to Hexadecimal.每处理一位后右移4位。负数的话要 `num+=2*32`.或者`num = (-num ^ 0xffffffff) + 1`.
+- 190题. Reverse Bits. 镜像移动两个数，用`m+=n&1`来赋值，先右移再赋值，然后再右移。
+- 401题. Binary Watch. 每个灯代表二进制的一个位.用一个双层循环来遍历一下所有的可能，如果灯的数量(`1`的个数)等于 num,那么就是一个解。
+
+##6.6
+- 371题. Sum of Two Integers. 有点小复杂,具体<https://www.hrwhisper.me/leetcode-sum-two-integers/>.
+- 260题. Single Number III. 很复杂，首先xor得到两个的`xor`,然后用 `xor &= -xor`得到最右边的`1`，也就是说这两个数，在这个位置上是不同的(`^`的性质)，然后根据这个，可以把这些数根据`num&xor == 0`分成两组，对每组进行`xor`以后，就得到了两个数.
+
+
+##6.5
+- 243题. Shortest Word Distance. 双指针。
+- 244题. Shortest Word Distance II. 用`hashtable`把`index`都存起来。然后取出最短距离。注意时间复杂度，双循环是O(m*n),单层循环是O(m+n)。
+- 245题. Shortest Word Distance III. 这题允许重复元素. 所以当遇到重复元素的时候，就把上一个遇到这个元素的位置记录下来，更新后面的.
+
 ##6.4
 - 521题. Longest Uncommon Subsequence I. 这题就是用来搞笑的。相等就返回`-1`，不想等就返回max(len(a),len(b)).
 - 522题. Longest Uncommon Subsequence II. 先降序排序，再对每一个比较。其中用到了迭代器.
-- 606题. Construct String from Binary Tree.
+- 606题. Construct String from Binary Tree. 前序遍历，用递归即可。需要注意的是在Python里`str`是不可变类型，不能用来作为递归时候的变量传递.很关键.
+- 448题. Find All Numbers Disappeared in an Array.解法非常巧妙，inplace 的第一遍时候把所有出现过的数值设为负，剩下的正的index就是没出现的数值了。不用inplace的话直接`return list(set(range(1, len(nums)+1)) - set(nums))`.
 
 ##5.19
 - 557题. Reverse Words in a String III. 用`x[::-1]`一行。

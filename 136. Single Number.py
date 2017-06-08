@@ -24,3 +24,16 @@ class Solution(object):
 
 def singleNumber4(self, nums):
     return reduce(lambda x, y: x ^ y, nums)
+
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        # return sum(list(set(nums)))*2 - sum(nums)
+        # bit manipulation
+        res = 0
+        for num in nums:
+            res ^= num
+        return res
