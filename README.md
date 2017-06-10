@@ -1,12 +1,11 @@
 ####刷题笔记
 #记录一些刷题细节，很惭愧只做了一点微小的工作
 
-##6.8
-- 
-
-
-
-
+##6.9
+- 599题. Minimum Index Sum of Two Lists.用哈希表，key是字符串，value是index,利用哈希表查询是O(1)的特点，循环更新最小值，记录结果.
+- 492题. Construct the Rectangle.开方之后查找能整除的。
+- 598题. Range Addition II. 分别求两个坐标的最小值相乘.
+- 530题. Minimum Absolute Difference in BST. inorder遍历,可以保存BST的序列。然后比较更新minimum.*大坑*这里本想用Python写个跟java一样的版本，才发现python的不可变类型在递归中是不会变的，所以用一个minimum来传递是不可实现的。*对于不可变对象作为函数参数，相当于C系语言的值传递；对于可变对象作为函数参数，相当于C系语言的引用传递*。
 
 ##6.7
 - 477题. Total Hamming Distance.这题跟260题类似，思路就是对于每一个位上，有`p`个`1`和`n-p`个`0`，会产生`p*(n-p)`个distance，对于32位每个位跑一边加起来就可以了。
