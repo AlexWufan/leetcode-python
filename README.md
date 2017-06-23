@@ -1,6 +1,23 @@
 ####刷题笔记
 #记录一些刷题细节，很惭愧只做了一点微小的工作
 
+##6.23
+
+
+
+##6.14
+- 541题. Reverse String II. Java C++可以swap,双循环。Python可以利用切片。也可以转换成`list`再处理，这样最后剩下的小字符串就不需要单独考虑了，因为`list`可以处理边界溢出的情况。比如`s = [1,2,3,4], s[2:10] =[3,4]`
+- 551题. Student Attendance Record I.正则表达式或者直接计数.Python 可以用`s.count('A')`
+- 543题. Diameter of Binary Tree.分别对左右各自取最大深度，再加起来.
+- 572题. Subtree of Another Tree.这题是Same Tree的变种，直接拿了same tree的答案来用了。先检查是否是same tree，如果不是，然后需要分别检查左右节点是否是isSubtree。
+
+##6.12
+- 563题. Binary Tree Tilt.要计算所有左右子树的差，不光光是节点对，所以要用递归，如果要先看左右值，就用后序遍历，然后返回`left+right+root.val`.
+- 455题. Assign Cookies. 双指针.
+- 506题. Relative Ranks.数组操作，用`hashmap`来存排名，前三替换.
+- 617题. Merge Two Binary Trees.递归.
+- 256题. Paint House.DP,对三种颜色都取最小，然后再`min()`.注意+=，可以在原数组上操作，很关键。
+
 ##6.9
 - 599题. Minimum Index Sum of Two Lists.用哈希表，key是字符串，value是index,利用哈希表查询是O(1)的特点，循环更新最小值，记录结果.
 - 492题. Construct the Rectangle.开方之后查找能整除的。
@@ -11,7 +28,7 @@
 - 477题. Total Hamming Distance.这题跟260题类似，思路就是对于每一个位上，有`p`个`1`和`n-p`个`0`，会产生`p*(n-p)`个distance，对于32位每个位跑一边加起来就可以了。
 - 191题. Number of 1 Bits. 无符号类型，java需要用`>>>`,`n&=(n-1)`或者`n = n&(n-1)`可以每次把最右边置0，知道全部是0.或者就每次`n&1`,然后>>>1。还可以`return Integer.bitCount(n);`
 - 137题. Single Number II. 巧妙的办法，<https://discuss.leetcode.com/topic/2031/challenge-me-thx>.
-- 231题. Power of Two. `n&(n-1)`可以移除最右边(最低位)的`0`，如果是power of 2就只有1位是`1`，所以可以用`return (n>0 && !(n&(n-1)))`，Jave里`!`不能用在`int`类型上。
+- 231题. Power of Two. `n&(n-1)`可以移除最右边(最低位)的`1`，如果是power of 2就只有1位是`1`，所以可以用`return (n>0 && !(n&(n-1)))`，Jave里`!`不能用在`int`类型上。
 - 342题. Power of Four.`return num > 0 && (num&(num-1)) == 0 && (num & 0x55555555) != 0;`.`0x5555555`是所有奇数位上是1的数.用它来保证是4的power，还可以用`(num-1)%3 == 0`来保证。
 - 405题. Convert a Number to Hexadecimal.每处理一位后右移4位。负数的话要 `num+=2*32`.或者`num = (-num ^ 0xffffffff) + 1`.
 - 190题. Reverse Bits. 镜像移动两个数，用`m+=n&1`来赋值，先右移再赋值，然后再右移。
