@@ -1,8 +1,17 @@
 ## ##  刷题笔记
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
-## 6.23
+## 6.29
+-  35题. Search Insert Position. 直接append然后排序可以解决，然而复杂度不好，Python的timesort复杂度最好能到O(n)，然而二分法只需要O(lg n),高下立判，Binary search.注意边界值.
 
+
+## 6.28
+- 628题. Maximum Product of Three Numbers. 先排序，最大值只可能是后三个，或者是前两个和最后一个的乘积。
+- 326题. Power of Three. 作弊的方法是找出最大的int 1162261467，然后看1162261467%n==0，比较一般的就是不断除3.
+- 594题. Longest Harmonious Subsequence.存一个`hashmap`，如果里面也有`num+1`，那么更新最大长度。
+
+## 6.25
+- 415题. Add Strings.要求加两个字符串类型的数，但是不准转换为`int`,做法就是一个一个读字符串，然后设置carry位存进位，然后累加起来。
 
 ## 6.14
 - 541题. Reverse String II. Java C++可以swap,双循环。Python可以利用切片。也可以转换成`list`再处理，这样最后剩下的小字符串就不需要单独考虑了，因为`list`可以处理边界溢出的情况。比如`s = [1,2,3,4], s[2:10] =[3,4]`
