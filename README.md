@@ -209,8 +209,8 @@ Python会TLE.
  + 另外一种做法是吧root替换为右孩子最左边(小)的节点，然后对右孩子递归操作。缺点是有的时候改那么多`val`不如改reference
 - 108题，把有序array编程平衡BST，用递归很简单就寻找中位数，找到root，再对左右结点递归操作。
 - 114题，Flattern Binary Tree,把BST压平。
- + 第一种做法是用递归，先把左右子树递归压平。再把右子树连接到左子树后面,再把左子树连接到`root.right`,最后把`root.left = None`. 
- + 第二种做法，叫 Morris traversal，非常有趣，做法是把左子树连接到`root.right`，然后找到左子树中最右边的结点，把右子树连接上去，然后再把左子树连接到`root.right`,然后`root = root.right` 一个个循环下去。空间复杂度O(1),时间复杂度O(n).厉害了
+  + 第一种做法是用递归，先把左右子树递归压平。再把右子树连接到左子树后面,再把左子树连接到`root.right`,最后把`root.left = None`. 
+  + 第二种做法，叫 Morris traversal，非常有趣，做法是把左子树连接到`root.right`，然后找到左子树中最右边的结点，把右子树连接上去，然后再把左子树连接到`root.right`,然后`root = root.right` 一个个循环下去。空间复杂度O(1),时间复杂度O(n).厉害了
 - 105和106题，Constuct Binary Tree from Preorder and Inorder/Inorder and Postorder Traversal。这两题[水中的鱼](http://fisherlei.blogspot.com)的文章<http://fisherlei.blogspot.com/2013/01/leetcode-construct-binary-tree-from.html> 有详细的解释。主要原理就是利用前序/后序遍历找到`root`，然后根据`root`分割`inoder`,然后递归左右子树。唯一一点要说的是`Python`写的中间切片操作会生成新的数组，导致MLE或者一些奇怪的bug,所以最好用`self._build_tree(inorder, low_in, high_in, postorder, low_post, high_post)`
 
 
@@ -227,7 +227,7 @@ Python会TLE.
 ## 12.1
 - 230题，寻找二叉搜索树中第k个值，直接用inorder遍历然后存储成数组，然后取出结果。discuss看到有人说的生成器的用法，用`yield`语法
 
-#11.24
+# 11.24
 - 94题和144题，分别是树的前序遍历和中序遍历，递归很简单。主要用迭代的方法做，用栈，前序遍历简单直接右-左顺序压栈就可以。中序遍历难一点，要先压栈到最左边，然后不断往`node.right`走，如果没有right那么就会pop中间节点，就是我们想要的流程。 
 - 145题，后序遍历，两种解决方法：
     1. 第一种双栈，第一个栈做左右交换的前序遍历，也就是说先压`node.left`，再压`node.right`，这样用第二个栈把节点都pop出来就是后序遍历。时间复杂度`O(n)`.
