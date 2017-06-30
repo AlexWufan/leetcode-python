@@ -117,8 +117,8 @@
 
 ## 2.20
 - 496题. Next Greater Element I. 这道题非常适合面试。
- + 首先很容易想到一个`O(m*n)`的解法，对`nums`建立一个hashmap,存每个元素的`index`,然后遍历`findNums`，找对应的`index`，再往后找`greater number`，这个虽然简单，但是有个边界值非常需要注意，第一种是j遍历到最后，还是没找到，这时候`append(-1)`,还有一种就是到最后了，找到了，这时候不加`-1`，还需要注意循环体的边界，如果`dic[n]+1 == len(nums)`循环体是不执行的。
- + 第二种是时间复杂度`O(m+n)`,直接对`nums`建一个hashmap，`key`是每一个`number`，`value`直接是`greater element`,怎么实现呢，需要用一个栈，维护一个递减的序列，For example `[9, 8, 7, 3, 2, 1, 6]`, the stack will first contain `[9, 8, 7, 3, 2, 1]` and then we see `6` which is greater than `1`, so we pop `1 2 3` whose next greater element should be `6`. 最后直接查询`findNums`的每一个元素，返回对用的`next greater element`或者 `-1`.
+  + 首先很容易想到一个`O(m*n)`的解法，对`nums`建立一个hashmap,存每个元素的`index`,然后遍历`findNums`，找对应的`index`，再往后找`greater number`，这个虽然简单，但是有个边界值非常需要注意，第一种是j遍历到最后，还是没找到，这时候`append(-1)`,还有一种就是到最后了，找到了，这时候不加`-1`，还需要注意循环体的边界，如果`dic[n]+1 == len(nums)`循环体是不执行的。
+  + 第二种是时间复杂度`O(m+n)`,直接对`nums`建一个hashmap，`key`是每一个`number`，`value`直接是`greater element`,怎么实现呢，需要用一个栈，维护一个递减的序列，For example `[9, 8, 7, 3, 2, 1, 6]`, the stack will first contain `[9, 8, 7, 3, 2, 1]` and then we see `6` which is greater than `1`, so we pop `1 2 3` whose next greater element should be `6`. 最后直接查询`findNums`的每一个元素，返回对用的`next greater element`或者 `-1`.
 - 503题. Next Greater Element II. 是496的follow up. 一样的思路，除了最基本的`O(n^2)`方法之外，还有两种方法都是用栈,循环体中的边界用`2*n`,然后`i%n`来把头尾接起来。一种使用`(index, number)`作为`key`，存储 greater number,注意进栈的时候，只对`i<len(nums)`的元素进栈。第二种做法是只存`index`,初始化一个`[-1*n]`的数组，其他的一样。
 
 ## 2.15
@@ -126,8 +126,8 @@
 
 ## 2.14
 - 285题. Inorder Successor in BST. 这题的解法是比较`root.val`和`p.val`的大小，考虑两种情况：
- + 第一种，`root.val > p.val`这种情况下 `root`是可能作为`p`的successor的，所以把res的值更新为root，然后往左边查找。
- + 第二种，`root.val <= p.val`, 这种情况下，`root`事不可能作为`p`的seccesor的，左子树也不可能，只有往右边找，`root = root.right`.
+  + 第一种，`root.val > p.val`这种情况下 `root`是可能作为`p`的successor的，所以把res的值更新为root，然后往左边查找。
+  + 第二种，`root.val <= p.val`, 这种情况下，`root`事不可能作为`p`的seccesor的，左子树也不可能，只有往右边找，`root = root.right`.
 最后迭代到`root = None`,这时候返回`res`就可以了。这题递归的方法也可以做，比较难以理解。
 
 ## 2.13
@@ -150,16 +150,16 @@ Python会TLE.
 
 ## 2.11
 - 5题. Longest Palindromic Substring. 这题两种做法,
- + 一种是按部就班的dp，状态转移方程是`P(i,j)=P(i+1,j-1) and S(i)=S(j)`,初始条件，`P(i,i) = True`和`P(i,i+1) = True`.用二维数组来存`True`or`False`,从长度为2的字符串往后面枚举，更新最大长度。时间复杂度O(n^2),空间O(n^2).
- + 另一种是选n-1个中间节点，从中间往两边拓展，分别对奇数和偶数两种讨论，更新`low`位置和最大长度`maxLen`，下标很容易搞错，amazon的重点题。时间复杂度O(n^2),空间复杂度O(1).
- + 还有一种更厉害的解法叫Manacher算法，时间复杂度O(n), 空间复杂度O(n)。不做讨论了。比较复杂。
+  + 一种是按部就班的dp，状态转移方程是`P(i,j)=P(i+1,j-1) and S(i)=S(j)`,初始条件，`P(i,i) = True`和`P(i,i+1) = True`.用二维数组来存`True`or`False`,从长度为2的字符串往后面枚举，更新最大长度。时间复杂度O(n^2),空间O(n^2).
+  + 另一种是选n-1个中间节点，从中间往两边拓展，分别对奇数和偶数两种讨论，更新`low`位置和最大长度`maxLen`，下标很容易搞错，amazon的重点题。时间复杂度O(n^2),空间复杂度O(1).
+  + 还有一种更厉害的解法叫Manacher算法，时间复杂度O(n), 空间复杂度O(n)。不做讨论了。比较复杂。
 
 ## 2.8
 - 380题. Insert Delete GetRandom O(1). In interview setting, it's perfectly reasonable to assume hash table add/delete operations are O(1). 这题需要实现O(1)的时间复杂度， 插入的需要用一个dict来存index，在删除的时候把最后一个元素跟删除的交换，pop掉最后一个，更新dict里的index。或者也可以用python自带的set数据结构来实现，但是就有种骑马找马的感觉了。java的写法中，ArrayList的`contains`方法时间复杂度是O(n)，所以这里要查询`Hashmap`来判断是否存在`val`. 这里对性能很关键。[这里](http://infotechgems.blogspot.com/2011/11/java-collections-performance-time.html)是java中数据结构的时间复杂度。
 - 138题. Copy List with Random Pointer.![](http://images.cnitblog.com/i/627993/201405/221027256064414.jpg)
- + 首先，在原链表的每个节点后面都插入一个新节点，新节点的内容和前面的节点一样。比如上图，1后面插入1，2后面插入2，依次类推。
- + 其次，原链表中的random指针如何映射呢？比如上图中，1节点的random指针指向3，4节点的random指针指向2。如果有一个tmp指针指向1（蓝色），则一条语句：tmp.next.random = tmp.random.next；就可以解决这个问题。
- + 第三步，将新的链表从上图这样的链表中拆分出来。
+  + 首先，在原链表的每个节点后面都插入一个新节点，新节点的内容和前面的节点一样。比如上图，1后面插入1，2后面插入2，依次类推。
+  + 其次，原链表中的random指针如何映射呢？比如上图中，1节点的random指针指向3，4节点的random指针指向2。如果有一个tmp指针指向1（蓝色），则一条语句：tmp.next.random = tmp.random.next；就可以解决这个问题。
+  + 第三步，将新的链表从上图这样的链表中拆分出来。
 另外用字典也可以做。字典会导致space complexity编程O(n). time complexity都是O(n).
 
 
@@ -195,18 +195,18 @@ Python会TLE.
 
 ## 1.7
 - 109题，两种方法
- + 第一种是快慢指针，时间复杂度O(nlgn)。用慢指针找到`inorder`的中点，分别对两边进行递归。中间要切断一些边。
- + 第二种是Bottom-up方法，用index来表示中点，一层层递归下去，先选最左边的结点，然后接到root上，然后接上右边的，整个过程是从下往上合并。因为先计算长度size，O(n)时间，然后`inorder reconstruction`,时间O(n)，所以总体时间是O(n). Space 是constant space所以是O(1) space.
+  + 第一种是快慢指针，时间复杂度O(nlgn)。用慢指针找到`inorder`的中点，分别对两边进行递归。中间要切断一些边。
+  + 第二种是Bottom-up方法，用index来表示中点，一层层递归下去，先选最左边的结点，然后接到root上，然后接上右边的，整个过程是从下往上合并。因为先计算长度size，O(n)时间，然后`inorder reconstruction`,时间O(n)，所以总体时间是O(n). Space 是constant space所以是O(1) space.
 - 还有一个大坑是，一不小心就空格和tab混合使用了，这样加注释的时候会产生不一样的注释缩进，导致无法AC！fuck！耽误一小时时间。
 - 200题，number of islands，用DFS，把每一个遇到的‘1’(岛)，寻找它相连的其他岛，变为`0`，因为我们把相连的`1`看作一个。时间复杂度O(mn),空间复杂度O(mn),mn为尺寸。
 - 394题，Decode String,又有两种做法。这题很有意思，也不太容易。
- 1. 第一种双栈，一个记录数字，也就是k，一个记录字符串，每次遇到'['的时候更新数字栈，同时也要压一个空的`''`进字符串栈，然后用`-1`索引来操作栈，最后字符串栈的第一个元素就是完整的字符串。这是比较一般的做法。
- 2. 第二种是用`python`的特性，用`stack = [['',]]`这样形式的栈，更新数字的时候，用`stack.append(['', int(num)])`,这样有数字的情况下就会自动嵌套，最后同样输出第一层的第一个元素。
+  1. 第一种双栈，一个记录数字，也就是k，一个记录字符串，每次遇到'['的时候更新数字栈，同时也要压一个空的`''`进字符串栈，然后用`-1`索引来操作栈，最后字符串栈的第一个元素就是完整的字符串。这是比较一般的做法。
+  2. 第二种是用`python`的特性，用`stack = [['',]]`这样形式的栈，更新数字的时候，用`stack.append(['', int(num)])`,这样有数字的情况下就会自动嵌套，最后同样输出第一层的第一个元素。
 
 ## 1.6
 - 450题，删除BST的结点。
- + 一种做法是用左孩子的最右边(最大)结点，把右孩子接上去，会增加树的高度，影响查询速度。还可以把左孩子接到右孩子的最左端。一样的。
- + 另外一种做法是吧root替换为右孩子最左边(小)的节点，然后对右孩子递归操作。缺点是有的时候改那么多`val`不如改reference
+  + 一种做法是用左孩子的最右边(最大)结点，把右孩子接上去，会增加树的高度，影响查询速度。还可以把左孩子接到右孩子的最左端。一样的。
+  + 另外一种做法是吧root替换为右孩子最左边(小)的节点，然后对右孩子递归操作。缺点是有的时候改那么多`val`不如改reference
 - 108题，把有序array编程平衡BST，用递归很简单就寻找中位数，找到root，再对左右结点递归操作。
 - 114题，Flattern Binary Tree,把BST压平。
   + 第一种做法是用递归，先把左右子树递归压平。再把右子树连接到左子树后面,再把左子树连接到`root.right`,最后把`root.left = None`. 
