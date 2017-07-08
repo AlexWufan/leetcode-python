@@ -1,6 +1,16 @@
 ## ##  刷题笔记
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
+## 7.7
+- 263题. Ugly Number. 不断除2/3/5即可。
+- 345题. Reverse Vowels of a String. 双指针。都符合条件就直接交换，否则各自+1.
+- 367题. Valid Perfect Square. 
+
+
+## 6.30
+- 53题. Maximum Subarray. Dp问题，状态转移：`maxSubArray(A, i) = maxSubArray(A, i - 1) > 0 ? maxSubArray(A, i - 1) : 0 + A[i];`
+- 270题. Closest Binary Search Tree Value.可以直接全部遍历一遍，这样没有利用到BST的性质。更好的做法是只便利一半，根据大小选择下一步是左还是右。
+
 ## 6.29
 -  35题. Search Insert Position. 直接append然后排序可以解决，然而复杂度不好，Python的timesort复杂度最好能到O(n)，然而二分法只需要O(lg n),高下立判，Binary search.注意边界值.
 
