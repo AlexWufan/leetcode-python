@@ -1,11 +1,17 @@
 ## ##  刷题笔记
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
+## 7.10
+- 501题. Find Mode in Binary Search Tree. 简单办法是直接用前/中/后序遍历遍历一遍，然后用hashmap存次数，高级方法用`O(1)`space，就是用`pre`,`count`之类的来更新`mode`了。
+- 434题. Number of Segments in a String. 直接split然后len().
+- 637题. Average of Levels in Binary Tree.
+
+
+
 ## 7.7
 - 263题. Ugly Number. 不断除2/3/5即可。
 - 345题. Reverse Vowels of a String. 双指针。都符合条件就直接交换，否则各自+1.
-- 367题. Valid Perfect Square. 
-
+- 367题. Valid Perfect Square. 二分法。
 
 ## 6.30
 - 53题. Maximum Subarray. Dp问题，状态转移：`maxSubArray(A, i) = maxSubArray(A, i - 1) > 0 ? maxSubArray(A, i - 1) : 0 + A[i];`
