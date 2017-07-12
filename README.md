@@ -1,11 +1,20 @@
 ## ##  刷题笔记
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
+
+
+
+## 7.11
+- 637题. Average of Levels in Binary Tree. level order traversal可以直接解决。
+- 538题. Convert BST to Greater Tree. 做倒序的`inorder`,先走到最后边，再往左递归，记录右边的和，不断累加。
+- 232题. Implement Queue using Stacks.使用栈实现队列，两种方法，第一种push的时候直接push成队列的顺序，push时间复杂度O(n)，第二种是双栈，pop的时间复杂度O(1),最坏情况是O(n)。
+- 441题. Arranging Coins.数学题，解方程，或者二分查找。
+- 422题. Valid Word Square.验证沿对角线是否对称即可.
+
 ## 7.10
 - 501题. Find Mode in Binary Search Tree. 简单办法是直接用前/中/后序遍历遍历一遍，然后用hashmap存次数，高级方法用`O(1)`space，就是用`pre`,`count`之类的来更新`mode`了。
-- 434题. Number of Segments in a String. 直接split然后len().
+- 434题. Number of Segments in a String. 直接`split()`然后`len()`.
 - 637题. Average of Levels in Binary Tree.
-
 
 
 ## 7.7
