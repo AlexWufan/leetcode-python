@@ -1,6 +1,13 @@
 ## ##  刷题笔记
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
+
+## 7.13
+- 276题. Paint Fence. 挺麻烦的，因为要求最多不能超过两个重复颜色的，所以需要设定两个变量，一个保存下一步涂不同颜色`diff`，另一个保存相同颜色`same`，`diff, same = (diff+same) * (k-1), diff`.
+- 507题. Perfect Number. 很容易暴力，然后优化，只需要迭代到平方根，`sum += i + num/i`.
+- 624题. Maximum Distance in Arrays.
+
+
 ## 7.12
 - 172题. Factorial Trailing Zeroes.计算有多少个`5`，`25`，`125`...累加即可，因为每个`5*2`都会产生一个`0`，`2`是足够用的，所以只需要计算`5`的个数.
 - 374题. Guess Number Higher or Lower. 二分查找.
