@@ -2,11 +2,28 @@
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
 ## 7.17
-- 526题. Beautiful Arrangement. Backtracking典型,检查是否合法，然后dfs，长度等于N就+1. 还可以top down solution, 非常快。还可以用cache存已经计算过的值，更快.[这里][https://discuss.leetcode.com/topic/79974/python-recursion-dp-66ms]
+- 526题. Beautiful Arrangement. Backtracking典型,检查是否合法，然后dfs，长度等于N就+1. 还可以top down solution, 非常快。还可以用cache存已经计算过的值，更快，贴一下代码 
+ ```class Solution(object):
+    def countArrangement(self, N):
+        """
+        :type N: int
+        :rtype: int
+        """
+        def helper(i,X,cache = {}):
+            if i == 1:
+                return 1
+            if X not in cache:
+                cache[X] = sum(helper(i-1,X[:j]+X[j+1:])
+                           for j,x in enumerate(X)
+                           if x % i == 0 or i % x == 0)
+            return cache[X]
+        return helper(N, tuple(range(1,N+1)))
+  ```
+- 604题. Design Compressed String Iterator.
+
 
 ## 7.15 
 - 67题. Add Binary.偷懒办法用内置函数，比较一般的做法就是按位相加，`carry`来存进位.
-- 604题. Design Compressed String Iterator.
 
 ## 7.13
 - 276题. Paint Fence. 挺麻烦的，因为要求最多不能超过两个重复颜色的，所以需要设定两个变量，一个保存下一步涂不同颜色`diff`，另一个保存相同颜色`same`，`diff, same = (diff+same) * (k-1), diff`.

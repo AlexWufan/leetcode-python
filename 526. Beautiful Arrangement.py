@@ -4,16 +4,17 @@ class Solution(object):
         :type N: int
         :rtype: int
         """
-        def helper(i,X):
+        def helper(i,X,cache = {}):
             if i == 1:
                 return 1
-            return sum(helper(i-1,X-{x})
-                        for x in X
-                       if x % i == 0 or i % x == 0)
-        return helper(N, set(range(1,N+1)))
+            if X not in cache:
+                cache[X] = sum(helper(i-1,X[:j]+X[j+1:])
+                           for j,x in enumerate(X)
+                           if x % i == 0 or i % x == 0)
+            return cache[X]
+        return helper(N, tuple(range(1,N+1)))
 
-
-#上面的是top down, 200ms，还可以提升性能.
+#上面的是top down, 并且存了cache,90ms.
 #下面的是backtracking, 2300ms
 
 
