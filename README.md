@@ -1,12 +1,18 @@
 ###  刷题笔记
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
+## 7.17
+- 526题. Beautiful Arrangement. Backtracking典型,检查是否合法，然后dfs，长度等于N就+1. 还可以top down solution, 非常快。还可以用cache存已经计算过的值，更快.[这里][https://discuss.leetcode.com/topic/79974/python-recursion-dp-66ms]
+
+## 7.15 
+- 67题. Add Binary.偷懒办法用内置函数，比较一般的做法就是按位相加，`carry`来存进位.
+- 604题. Design Compressed String Iterator.
 
 ## 7.13
 - 276题. Paint Fence. 挺麻烦的，因为要求最多不能超过两个重复颜色的，所以需要设定两个变量，一个保存下一步涂不同颜色`diff`，另一个保存相同颜色`same`，`diff, same = (diff+same) * (k-1), diff`.
 - 507题. Perfect Number. 很容易暴力，然后优化，只需要迭代到平方根，`sum += i + num/i`.
 - 624题. Maximum Distance in Arrays. 非常巧妙，先设定一个`MAX`，一个`MIN`，一个`res`，然后之后的每次遍历，都交叉比较，保证最大最小不在一个`list`里面.
-- 225题. Implement Stack using Queues.跟232差不多，两种，一种使用两个que，另外一种方法是push的时候不断pop再push使得最开始push进来的push到最头上。
+- 225题. Implement Stack using Queues.跟232差不多，两种，一种使用两个`que`，另外一种方法是`push`的时候不断`pop`再`push`使得最开始`push`进来的push到最头上。
 
 ## 7.12
 - 172题. Factorial Trailing Zeroes.计算有多少个`5`，`25`，`125`...累加即可，因为每个`5*2`都会产生一个`0`，`2`是足够用的，所以只需要计算`5`的个数.
