@@ -1,11 +1,19 @@
 ###  刷题笔记
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
+##7.26
+- 633题. Sum of Square Numbers. 在`c`的开方内枚举`a`，然后`b = (c-a*a)**0.5`,如果b是整数那么返回true.
+- 400题. Nth Digit.
+
+## 7.25
+- 58题. Length of Last Word. 可以用split(),或者从尾巴开始，先跳过‘ ’，到第一个不为空开始计数，知道到达最前面或者遇到‘ ’.
+- 604题. Design Compressed String Iterator. 需要计数,计算当前字符个数，当为0的时候只想下一个字符，这道题只能用python3提交，不知道为什么。
+
+
 ## 7.23
 - 645题. Set Mismatch.找出重复元素，然后找出丢失元素。最一般的就用哈希表，或者用一个长度为n的数组来存放出现的次数，等于2就是重复元素，等于0就是缺失元素.
 - 643题. Maximum Average Subarray I. Sliding window. K是给定的，所以很简单。
 - 644题. Maximum Average Subarray II.给定范围是大于等于K的，如果是完全不规定呢？还没有好的解决办法.答案用的是二分法。
-- 604题. Design Compressed String Iterator.
 
 ## 7.17
 - 526题. Beautiful Arrangement. Backtracking典型,检查是否合法，然后dfs，长度等于N就+1. 还可以top down solution, 非常快。还可以用cache存已经计算过的值，更快，贴一下代码 
