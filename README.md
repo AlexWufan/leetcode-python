@@ -1,9 +1,14 @@
 ###  刷题笔记
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
-##7.26
+## 7.27
+- 605题. Can Place Flowers.三连`0`就可以在中间插一个，但是还有两头这种情况，所以可以在一头一尾加上一个空的，再直接开始判断，或者也可以判断是否`i==0 和i==len(flowerbed)-1` 这两种情况。
+- 581题. Shortest Unsorted Continuous Subarray.这道题有160个upvote，4个downvote，说明题目很好。O(nlgn)的解法最简单，就是排序，然后比较，index也有点tricky,O(n)的解法非常巧妙。[这里](https://discuss.leetcode.com/topic/89282/java-o-n-time-o-1-space)
+
+
+## 7.26
 - 633题. Sum of Square Numbers. 在`c`的开方内枚举`a`，然后`b = (c-a*a)**0.5`,如果b是整数那么返回true.
-- 400题. Nth Digit.
+- 400题. Nth Digit.比较一般的做法，首先确定来自于那个数字段，再确定来自于哪个数，在确定是哪个数字。
 
 ## 7.25
 - 58题. Length of Last Word. 可以用split(),或者从尾巴开始，先跳过‘ ’，到第一个不为空开始计数，知道到达最前面或者遇到‘ ’.
