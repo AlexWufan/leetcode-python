@@ -1,6 +1,10 @@
 ###  刷题笔记
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
+## 7.28
+- 475题. Heaters. 比较麻烦的一道题。解法是对每一个house选出来最近的一个heater, 记录距离，然后在所有的距离里选出来一个最大的. 如何对每一个house选最近的heater呢, 可以用下标的方式，也可以用二分法.
+
+
 ## 7.27
 - 605题. Can Place Flowers.三连`0`就可以在中间插一个，但是还有两头这种情况，所以可以在一头一尾加上一个空的，再直接开始判断，或者也可以判断是否`i==0 和i==len(flowerbed)-1` 这两种情况。
 - 581题. Shortest Unsorted Continuous Subarray.这道题有160个upvote，4个downvote，说明题目很好。O(nlgn)的解法最简单，就是排序，然后比较，index也有点tricky,O(n)的解法非常巧妙。[这里](https://discuss.leetcode.com/topic/89282/java-o-n-time-o-1-space)
