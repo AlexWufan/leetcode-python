@@ -1,10 +1,16 @@
 ###  刷题笔记
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
+## 8.1
+- 170题. Two Sum III - Data structure design. two sum 变形，Python的in dict时间复杂度几乎是O(1)，get()也是，解法还是哈希表.要注意重复元素，如果有两个重复元素就可以用.
+- 479题. Largest Palindrome Product.很烦的题，要先构造回文数，再检查是否可以被n位的数整除.关键点是，如何优化时间复杂度，用Python总是会TLE。另外构造Palindrome的时候，为什么总是2*n长度？为什么不考虑奇数长度的Palindrome呢？我的一种猜测是当n足够大比如2以上的时候，因为Palindrome的范围会很大，所以很有可能在2*n长度的时候都会存在符合要求的数，这样不需要到2*n-1就可以返回结果了.
+- 
+
+
 ## 7.31
 - 408题. Valid Word Abbreviation.只需要统计长度相等即可，注意一些边界条件，比如abbr以数字结尾，或者0开头,或者数字大于总长度.
 - 69题. Sqrt(x).求平方根。可以用二分查找，也可以用牛顿法。也可以用bit manipulation.
-- 125题. Valid Palindrome.
+- 125题. Valid Palindrome.双指针，如果不是alnum就+1.
 
 ## 7.29
 - 157题. Read N Characters Given Read4.非常莫名其妙的一道题，主要注意的几个点，`buf`是接受字符的容器，而且大小分配好了，然后因为有可能文件长度比`n`还要小,所以要处理这种情况。做法就是用一个长度为4的`tmp`数组存`read4()`读进来的字符，然后传给`buf`.
