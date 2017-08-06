@@ -1,10 +1,13 @@
 ###  刷题笔记
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
+## 8.5 
+- 653题. Two Sum IV - Input is a BST.遍历一边树，节点存到一个hashmap，然后two sum.
+- 654题. Maximum Binary Tree. 递归左右子树即可。
+
 ## 8.1
 - 170题. Two Sum III - Data structure design. two sum 变形，Python的in dict时间复杂度几乎是O(1)，get()也是，解法还是哈希表.要注意重复元素，如果有两个重复元素就可以用.
 - 479题. Largest Palindrome Product.很烦的题，要先构造回文数，再检查是否可以被n位的数整除.关键点是，如何优化时间复杂度，用Python总是会TLE。另外构造Palindrome的时候，为什么总是2*n长度？为什么不考虑奇数长度的Palindrome呢？我的一种猜测是当n足够大比如2以上的时候，因为Palindrome的范围会很大，所以很有可能在2*n长度的时候都会存在符合要求的数，这样不需要到2*n-1就可以返回结果了.
-- 
 
 
 ## 7.31
