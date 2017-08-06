@@ -1,6 +1,10 @@
 ###  刷题笔记
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
+## 8.6
+- 544题. Output Contest Matches.循环log(n,2)次，`res[i] = '(' + res[i] + ','+ res[n-1-i] + ')'`，或者用`zip()`.
+- 2. Add Two Numbers.
+
 ## 8.5 
 - 653题. Two Sum IV - Input is a BST.遍历一边树，节点存到一个hashmap，然后two sum.
 - 654题. Maximum Binary Tree. 递归左右子树即可。
