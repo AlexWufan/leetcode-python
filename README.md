@@ -1,9 +1,20 @@
 ###  刷题笔记
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
+## 8.16
+- 15题. 3Sum.时间复杂度为`O(n^2)`.解法是，对于每一个数，把`target`设置为`0-nums[i]`,然后可以用2sum来解决，这里用的是双指针而不是字典，效果是一样的。要注意去重，包括`nums[i]`和`nums[l]`,`nums[r]`。
+
+## 8.9
+- 148题. Sort List. merge sort,一个merge函数用来合并，然后主函数拆分linkedlist，bottom-up。时间复杂度O(nlogn)，空间不算递归开销的话是O(1).
+
+## 8.7
+- 11题. Container With Most Water. 从左右开始，更新体积v，如果左右高度哪个低，就更新哪个，这样可以保证体积最大。有证明不过比较绕。
+- 151题. Reverse Words in a String. split以后reverse，再拼起来即可。方法很多，可以全部倒过来以后对每个单词reverse，还可以用分治法，对空格左右分别递归。
+- 388题. Longest Absolute File Path. 巧妙解法：用input.splitlines()直接获取每行的字符串，然后根据`depth = len(line) - len(name)`来确定深度，交替更新maxlen和pathlen[depth]。比较一般的做法是使用栈。
+
 ## 8.6
 - 544题. Output Contest Matches.循环log(n,2)次，`res[i] = '(' + res[i] + ','+ res[n-1-i] + ')'`，或者用`zip()`.
-- 2. Add Two Numbers.
+- 2题. Add Two Numbers. 比较容易，新建一个linkedlist,把依次把l1和l2的val加进去就可以了，如果遇到进位就下一步加1.
 
 ## 8.5 
 - 653题. Two Sum IV - Input is a BST.遍历一边树，节点存到一个hashmap，然后two sum.
