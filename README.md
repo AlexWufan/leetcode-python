@@ -1,8 +1,19 @@
 ###  刷题笔记
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
+## 8.31
+- 56题. Merge Intervals. `Interval`是一个类的实例，然后只需要设置一个`start`和`end`来作为最大的起点和终点就可以更新`result`里。也可以用栈来实现。更为简单。也可以跟meeting rooms II一样的做法，排序两次，用两个指针来更新。
+- 49题. Group Anagrams.
+
+
+## 8.19
+- 62题. Unique Paths.DP问题，状态转移方程`P[i][j] = P[i - 1][j] + P[i][j - 1]`.
+- 657题. Judge Route Circle.只需要count即可.
+- 661题. Image Smoother.双循环即可。
+- 662题. Maximum Width of Binary Tree.level order会tle,所以只能用递归。DFS,对左右节点记录在树中的`index`编号，用一个`dict`来维护，key是深度，`value`是`index`，空的就返回`None`, 这样便利一遍`map`就可以确定最宽的。
+
 ## 8.18
-- 433题.Minimum Genetic Mutation.我的方法是用`backtracking`,用`diff`函数来判断差刚好1个字符，用`bfs`来查找。要在查找结束之后把`visited`和 `mutation`重置。
+- 433题.Minimum Genetic Mutation.我的方法是用`backtracking`,用`diff`函数来判断差刚好1个字符，用`bfs`来查找。要在查找结束之后把`visited`和 `mutation`重置。其他方法使用栈或者队列。
 
 ## 8.16
 - 15题. 3Sum.时间复杂度为`O(n^2)`.解法是，对于每一个数，把`target`设置为`0-nums[i]`,然后可以用2sum来解决，这里用的是双指针而不是字典，效果是一样的。要注意去重，包括`nums[i]`和`nums[l]`,`nums[r]`。

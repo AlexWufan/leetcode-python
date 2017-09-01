@@ -6,31 +6,22 @@ class Solution(object):
         :type bank: List[str]
         :rtype: int
         """
-        dic = ['A','C','G','T']
-        stack = [start]
         res = []
-        visited = []
-        mutation = [0]
-        self.bfs(start, end, bank, stack, res, mutation, visited, dic)
+        self.bfs(start, end, bank, res, 0, [])
         return min(res) if res else -1
     
-    def bfs(self, start, end, bank, stack, res, mutation, visited, dic):
+    def bfs(self, start, end, bank, res, mutation, visited):
         if end == start:
-            res.append(mutation[0])
-            print(res)
+            res.append(mutation)
             return
         for x in bank:
             if self.diff(x,start) and x not in visited:
                 visited.append(x)
-                mutation[0]+=1
-                self.bfs(x, end, bank, stack, res, mutation, visited, dic)
+                mutation+=1
+                self.bfs(x, end, bank, res, mutation, visited)
                 visited.pop()
-                mutation[0]-=1
+                mutation-=1
                 
     
     def diff(self, a, b):
-        count = 0
-        for x,y in zip(a,b):
-            if x!=y:
-                count += 1
-        return count == 1 
+        return len(['!' for a,b in zip(a,b) if a!=b ]) == 1
