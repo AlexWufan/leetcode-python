@@ -1,9 +1,19 @@
 ###  刷题笔记
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
+## 9.4
+- 127题. Word Ladder.
+
+
+## 9.3
+- 218题. The Skyline Problem.时间复杂度`O(n^2)`.对每一个`building`的左上角和右下角遍历，用一个最大堆(Python中没有最大堆可以用-h代替h)维护高度，如果x(横坐标)的越过了`heap`里最顶(高)的,就`pop`，否则`push`，一旦高度跟`res`里最后一个不同，说明是一个`key point`.在Python中，`heapq`的`push`和`pop`都是`O(logn)`.java中也是(至少pop..)。
+- 207题. Course Schedule.两种方法，第一种是拓扑排序，使用一个`queue`(`deque`)实现，第二种是`dfs`或者`bfs`.发现环路就返回`False`.
+- 210题. Course Schedule II.跟207一样，只需要记录拓扑排序。
+
+
 ## 8.31
 - 56题. Merge Intervals. `Interval`是一个类的实例，然后只需要设置一个`start`和`end`来作为最大的起点和终点就可以更新`result`里。也可以用栈来实现。更为简单。也可以跟meeting rooms II一样的做法，排序两次，用两个指针来更新。
-- 49题. Group Anagrams.
+- 49题. Group Anagrams.用`tuple(sorted(x))`来作为`hash`的`key`,用`lib`来存储已经出现过的组合，并且`value`是`index`，然后可以在`result`里面存储。速度比一般的快。
 
 
 ## 8.19
