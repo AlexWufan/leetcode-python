@@ -18,3 +18,13 @@ class Solution(object):
         	last = p
         	p = next
         return last
+        
+class Solution:
+# @param {ListNode} head
+# @return {ListNode}
+    def reverseList(self, head, last = None):
+        if not head:
+            return last
+        next = head.next
+        head.next = last
+        return self.reverseList(next, head)

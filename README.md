@@ -3,12 +3,14 @@
 
 ## 9.4
 - 127题. Word Ladder.
-
+- 
+- 564题. Find the Closest Palindrome. 把所有可能的结果存为candidates， 然后遍历选择最小的。如何选择candidates呢，用n的前一半，p，分别使用p，p+1，p-1，来组成*奇和偶*回文，同时考虑如果答案和n长度不同的情况，这时候需要把邻近的999999和1000001加入candidates.
+- 381题. Insert Delete GetRandom O(1) - Duplicates allowed.跟380题很类似，这里使用`difaultdict(set)`而不是普通的`dict`.最关键的部分在`remove()`函数中，因为经过不断的交换之后，在存放index的容器中，顺序都乱了，所以不能用`pop()`而使用`discard`或者`remove`，在`list`中`remove`是`O(n)`的，而在`set`中`pop()`和`discard`可以看作是O(1).
 
 ## 9.3
 - 218题. The Skyline Problem.时间复杂度`O(n^2)`.对每一个`building`的左上角和右下角遍历，用一个最大堆(Python中没有最大堆可以用-h代替h)维护高度，如果x(横坐标)的越过了`heap`里最顶(高)的,就`pop`，否则`push`，一旦高度跟`res`里最后一个不同，说明是一个`key point`.在Python中，`heapq`的`push`和`pop`都是`O(logn)`.java中也是(至少pop..)。
 - 207题. Course Schedule.两种方法，第一种是拓扑排序，使用一个`queue`(`deque`)实现，第二种是`dfs`或者`bfs`.发现环路就返回`False`.
-- 210题. Course Schedule II.跟207一样，只需要记录拓扑排序。
+- 210题. Course Schedule II. 跟207一样，只需要记录拓扑排序。
 
 
 ## 8.31

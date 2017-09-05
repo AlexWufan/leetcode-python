@@ -13,7 +13,7 @@ class RandomizedSet(object):
         :type val: int
         :rtype: bool
         """
-        if val in self.__set:
+        if val in self.__pos:
             return False
         else:
             self.__set.append(val)
@@ -26,7 +26,7 @@ class RandomizedSet(object):
         :type val: int
         :rtype: bool
         """
-        if val in self.__set:
+        if val in self.__pos:
             index = self.__pos[val]
             last = self.__set[-1]
             self.__set[index] = last
@@ -42,7 +42,9 @@ class RandomizedSet(object):
         Get a random element from the set.
         :rtype: int
         """
-        return self.__set[random.randint(0, len(self.__set)-1)]
+        # return self.__set[random.randint(0, len(self.__set)-1)]
+        return random.choice(self.__set)
+
 
 
 # Your RandomizedSet object will be instantiated and called as such:
