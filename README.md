@@ -2,8 +2,13 @@
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
 ## 9.4
-- 127题. Word Ladder.
-- 
+- 127题. Word Ladder. 经典的`bfs`，需要注意时间复杂度，用单向`bfs`的复杂度是`26*L*N`.要把`list`改成`set`，因为`list`的`in`操作是`O(n)`而`set`的是`O(1)`. 还可以用双向bfs，分别从两头都开始bfs，有交集就可以返回。
+- 126题. Word Ladder II,时间复杂度要求很高，backtracking会超时，具体有几种解法:
+ 1. 一种可以先bfs，记录正向边，然后进行bfs.
+ 2. 第二种可以先bfs,记录父节点，也就是反向边，然后dfs从后往前查找。
+
+
+## 9.4
 - 564题. Find the Closest Palindrome. 把所有可能的结果存为candidates， 然后遍历选择最小的。如何选择candidates呢，用n的前一半，p，分别使用p，p+1，p-1，来组成*奇和偶*回文，同时考虑如果答案和n长度不同的情况，这时候需要把邻近的999999和1000001加入candidates.
 - 381题. Insert Delete GetRandom O(1) - Duplicates allowed.跟380题很类似，这里使用`difaultdict(set)`而不是普通的`dict`.最关键的部分在`remove()`函数中，因为经过不断的交换之后，在存放index的容器中，顺序都乱了，所以不能用`pop()`而使用`discard`或者`remove`，在`list`中`remove`是`O(n)`的，而在`set`中`pop()`和`discard`可以看作是O(1).
 
