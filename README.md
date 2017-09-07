@@ -1,11 +1,17 @@
 ###  刷题笔记
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
-## 9.4
+## 9.7
+- 671题. Second Minimum Node In a Binary Tree.因为不能算重复元素，所以用set()来存结果，跑一边dfs把所有值加进去，排序输出第二个即可。
+
+## 9.6
 - 127题. Word Ladder. 经典的`bfs`，需要注意时间复杂度，用单向`bfs`的复杂度是`26*L*N`.要把`list`改成`set`，因为`list`的`in`操作是`O(n)`而`set`的是`O(1)`. 还可以用双向bfs，分别从两头都开始bfs，有交集就可以返回。
 - 126题. Word Ladder II,时间复杂度要求很高，backtracking会超时，具体有几种解法:
  1. 一种可以先bfs，记录正向边，然后进行bfs.
  2. 第二种可以先bfs,记录父节点，也就是反向边，然后dfs从后往前查找。
+- 669题. Trim a Binary Search Tree. 递归，首先验证root是否在范围内，否则把root更换为root.left/root.right. 然后分别对左右进行递归。
+- 665题. Non-decreasing Array.对i的情况进行讨论.到底是nums[i]有问题还是nums[i+1]有问题.
+
 
 
 ## 9.4
