@@ -4,9 +4,7 @@
 ## 9.9
 - 540题. Single Element in a Sorted Array. 二分法，要讨论mid的奇偶。更好的做法是，永远把mid设置为最中间的数偏左一位，永远为偶数，维持r-l+1也就是数组长度为奇数，就可以不用讨论，而且更好理解。
 - 22题. Generate Parentheses. dfs解决。典型题。
-
-
-
+- 153题. Find Minimum in Rotated Sorted Array.典型的二分查找，注意的是如果是比较`l`和`mid`，需要考虑如果是完全有序的，那么就直接返回最左边。如果直接`mid`跟`r`比，就不用，因为`mid`会一直往左边缩。
 
 ## 9.8
 - 139题. Word Break. `Dp`可以解决，dp数组里存的`d[i]`，`s[:i+1]`是否可以word break，还可以用bfs。初始dp[0]为`True`.
