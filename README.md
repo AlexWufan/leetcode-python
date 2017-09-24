@@ -1,6 +1,12 @@
 ###  刷题笔记
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
+##
+
+## 9.24
+- 680题. Valid Palindrome II. 暴力的解法是一个一个试验，时间O(n^2)空间O(n).更好的解法，先开始从头i尾j开始比较，发现不同s[i]!=s[j]，那么就判断s[i],s[i+1]...s[j]即s[i:j]和s[i+1]....s[j+1]即s[i+1:j+1].时间O(n)空间O(1).
+- 674题. Longest Continuous Increasing Subsequence.一次循环即可，每次循环记录最长长度。
+
 ## 9.12
 - 146题. LRU Cache.要维护一个常用的cache，不常用的要被慢慢弹出。用OrderedDict可以解决。
 - 42题. Trapping Rain Water. 
