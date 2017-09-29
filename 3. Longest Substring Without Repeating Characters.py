@@ -48,19 +48,17 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        m = 0
-        d = {}
+        window = {}
         start = 0
+        res = 0
         for i in range(len(s)):
-        	if s[i] in d and start <= d[s[i]]:
-        		start = d[s[i]] + 1
-        	d[s[i]] = i 
-        	if i-start+1>m:
-        		m = i-start+1
-        	else: continue
-        return m
-
-
+            if s[i] in window and start <= window[s[i]]:
+                start = window[s[i]] + 1
+            else:
+                res = max(i - start + 1, res)
+            window[s[i]] = i
+            
+        return res
 
 
 
