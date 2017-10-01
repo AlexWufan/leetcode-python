@@ -1,6 +1,9 @@
 ###  刷题笔记
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
+## 9.30
+- 221题. Maximal Square.典型的DP问题，dp[i][j]代表在当前这么大的区域内，以这个格子为终点(右下角)的最大边长。这个不能代表全局最大，只能代表局部最大，所以要用一个length来记录全局的最长长度。状态转移方程：`dp[i][j] = min(dp[i-1][j], dp[i-1][j-1], dp[i][j-1]) + 1`,当`matrix[i][j] == 0:dp[i][j]=0`,根据定义`dp[i][j]`自然也是0. 注意边界值。
+
 ## 9.28
 - 435题. Non-overlapping Intervals.贪心算法，按照`i.end`排序，越早结束的 越不影响后面的。出现overlap，那么`count+=1`，如果没有 更新`i.end`.
 - 418题. Sentence Screen Fitting. 这一题预处理字符串，把每个单词之间用空格' '串起来，然后再在后面加一个空格' ', 这样就可以利用一个游标，来计算一共走的步数，除以字符串的长度就能计算出来多少遍。具体操作是:
@@ -9,7 +12,8 @@
   - `else:`说明这个开头是落在了字母上，
     + if `s[(start-1) % l]`这个位置的字母，是空格' '，说明刚好上一行最后一个位置里是空格符' ',皆大欢喜，什么都不用做。
     + 如果不是，那么我们要退格子，因为有单词撕裂了。用一个循环，`while s[(start-1)%l] != ' ': start -= 1`, 把上一行撕裂的单词的部分往后移动，这样会出现很多空格，但实际上并没有算在有效步长里，所以要`start -= 1`来补偿回去。
-最后，拿`start // l`即可得出使用sentence的次数。
+最后，拿`start // l`即可得出使用sentence的次数。另外这一题还可以用dp.
+- 347题. Top K Frequent Elements. 最简单的就是用Counter.most_common(k),most_common的实现应用了heapq模块。时间复杂度是`O(n*logk)`.还可以用bucket sort，时间复杂度O(n).
 
 ## 9.25
 - 23题. Merge k Sorted Lists.用heapq，时间复杂度O(nlgn).或者用priority queue.

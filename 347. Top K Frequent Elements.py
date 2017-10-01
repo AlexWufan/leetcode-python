@@ -1,4 +1,3 @@
-import collections
 class Solution(object):
     def topKFrequent(self, nums, k):
         """
@@ -8,8 +7,20 @@ class Solution(object):
         """
         d = {}
         for x in nums:
-        	d[x] = d.get(x, 0) + 1
-        return sorted(d.keys(), key=lambda x: d[x], reverse=True)[0:k]
+            d[x] = d.get(x, 0) + 1
+        bucket = [[] for _ in range(len(nums)+1)]
+        for key in d:
+            bucket[d[key]].append(key)
+        res = []
+        for i in range(len(nums),0,-1):
+            if bucket[i]:
+                res += bucket[i]
+        return res[:k]
+            
+        
+        
+        
+        # return zip(*collections.Counter(nums).most_common(k))[0]
 
         # return zip(*collections.Counter(nums).most_common(k))[0]
         # return [i[0] for i in collections.Counter(nums).most_commen(k)]
