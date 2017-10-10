@@ -34,7 +34,7 @@ class Solution(object):
         :rtype: List[int]
         """
         if not root: return []
-        res, stack = [], [root]
+        sres, stack = [], [root]
         while stack:
         	node = stack.pop()
         	res.append(node.val)

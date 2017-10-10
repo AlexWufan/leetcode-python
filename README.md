@@ -1,8 +1,16 @@
 ###  刷题笔记
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
+## 10.9
+- 690题. Employee Importance. 简单的dfs，用字典存id和object对应关系.栈或者递归都可以。
+- 695题. Max Area of Island. `dfs` 和`number of islands` 一模一样。
+- 687题. Longest Univalue Path. 和543题[Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/description/)解法一样，维护左右最大值，符合条件`node.left.val == node.val`就+1,否则置0，每次更新res.
+- 686题. Repeated String Match. `B`在`A`中，`A`的循环次数是`ceil(len(B)/len(A))`，或者+1，分别判断一下即可，其中，`B in A`中的复杂度是The time complexity is O(N) on average, O(NM) worst case (N being the length of the longer string, M, the shorter string you search for.
+- 693题. Binary Number with Alternating Bits.很多种方法，比较通俗的是`n^(n>>1)`,这样得到的全是1，然后判断是否全是1即可，比如`not num&(num-1)`. 还有其他的做法比如，不断除以2，比较最后一位是否一直是不同的，还有检查'00'或者'11'是否在`bin(n)`里，还可以按照`bin(n)`循环一个个检查.
+
 ## 9.30
 - 221题. Maximal Square.典型的DP问题，dp[i][j]代表在当前这么大的区域内，以这个格子为终点(右下角)的最大边长。这个不能代表全局最大，只能代表局部最大，所以要用一个length来记录全局的最长长度。状态转移方程：`dp[i][j] = min(dp[i-1][j], dp[i-1][j-1], dp[i][j-1]) + 1`,当`matrix[i][j] == 0:dp[i][j]=0`,根据定义`dp[i][j]`自然也是0. 注意边界值。
+- 297题. Serialize and Deserialize Binary Tree. 用dfs来把树撸平，在用dfs把list变成树。
 
 ## 9.28
 - 435题. Non-overlapping Intervals.贪心算法，按照`i.end`排序，越早结束的 越不影响后面的。出现overlap，那么`count+=1`，如果没有 更新`i.end`.

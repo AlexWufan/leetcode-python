@@ -5,24 +5,6 @@
 #         self.left = None
 #         self.right = None
 
-# DFS
-class Solution:
-    # @param {TreeNode} root
-    # @return {string[]}
-    def binaryTreePaths(self, root):
-    	if not root:
-    		return []
-    	res, stack =[], [[root, str(root.val)]]
-    	while stack:
-    		node, path = stack.pop()
-    		if not node.left and not node.right:
-    			res.append(path)
-    		if node.right:
-    			stack.append([node.right, path + '->' + str(node.right.val)])
-    		if node.left:
-    			stack.append([node.left, path + '->' + str(node.left.val)])
-    	# modify res to string 
-    	return res
 
 # BFS
 class Solution:
@@ -41,6 +23,24 @@ class Solution:
     		if node.left:
     			queue.append([node.left, path + '->' + str(node.left.val)])
     	return res
+# DFS
+class Solution:
+    # @param {TreeNode} root
+    # @return {string[]}
+    def binaryTreePaths(self, root):
+        if not root:
+            return []
+        res, stack =[], [[root, str(root.val)]]
+        while stack:
+            node, path = stack.pop()
+            if not node.left and not node.right:
+                res.append(path)
+            if node.right:
+                stack.append([node.right, path + '->' + str(node.right.val)])
+            if node.left:
+                stack.append([node.left, path + '->' + str(node.left.val)])
+        # modify res to string 
+        return res
 
 # recursive
 class Solution:
