@@ -10,14 +10,13 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        last = None
-        p = head
-        while p:
-        	next = p.next
-        	p.next = last
-        	last = p
-        	p = next
-        return last
+        pre = None
+        while head:
+            cur = head
+            head = head.next
+            cur.next = pre
+            pre = cur
+        return pre
         
 class Solution:
 # @param {ListNode} head

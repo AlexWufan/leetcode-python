@@ -1,9 +1,17 @@
 ###  刷题笔记
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
+## 10.25
+- 647题. Palindromic Substrings. 和5题一样的解法。要么dp要么从中心扩展。
+
+## 10.16
+- 253题. Meeting Rooms II.一个烤串，尽量穿最多的meeting，那么需要用两个pointer，首先先对start和end排序，拍完了以后从头开始，穿串串，从第一个开始，如果`start[i]<end[pointer`那么rooms+1，否则pointer+=1.
+- 312题. Burst Balloons.DP问题，状态转移方程`dp[i][j] = max(dp[i][j], nums[i] * nums[k] * nums[j] + dp[i][k] + dp[k][j]) # i < k < j`.假设k为i-j中最后一个被打爆的，我们把气球的个数从2-n个迭代，最后我们的结果就是dp[0][n].
+
 ## 10.12
 - 670题. Maximum Swap.扫两遍，第一遍从右往左，记录右边最大的数字和`index`,可以用数组也可以用`dict`.第二遍从左往右，如果发现任何一个数组比右边的最大要小，那么交换。时间复杂度`O(n)`.
-
+- 449题. Serialize and Deserialize BST. 和#297一样。使用dfs.
+- 215题. Kth Largest Element in an Array. `heapq`即可，如果追求`O(n)`那么要用quick selection。
 
 ## 10.11
 - 460题. LFU Cache. 还不会做。
