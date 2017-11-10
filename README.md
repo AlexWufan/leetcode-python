@@ -7,7 +7,7 @@
 - 696题. Count Binary Substrings.只记录连续的，所以两种办法，第一种是分组，0001111分组称为3，4，res += min(3,4)，这样只需要统计分组，然后求和即可。第二种是用pre, cur记录之前的两组，每当发生变化时候，res += min(pre, cur),然后再更新pre，cur即可，最后加上最后一次的min(pre, cur).
 - 697题. Degree of an Array. 用三个dict存left, right, 和count, 然后选取最大的degree, 比较即可。
 - 720题. Longest Word in Dictionary. 先排序，用一个set存放一个个的前缀，如果word[:-1]在set里，长度也增加了，那么res可以更新为这个word。
-
+- 443题. String Compression.解法是设置一个anchor作为标记，记录已经处理的位置，read 和write分别作为读和写的index,如果不同，那么开始压缩一个字母，后面接上频率， 然后更新anchor.这题难点在于inplace,只需要处理完即可，后面留的尾巴不用管了.
 
 ## 10.25
 - 647题. Palindromic Substrings. 和5题一样的解法。要么dp要么从中心扩展。
