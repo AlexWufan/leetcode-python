@@ -4,7 +4,8 @@ class RandomizedCollection(object):
         """
         Initialize your data structure here.
         """
-        
+        self.__set = []
+        self.__pos = collections.defaultdict(set)
 
     def insert(self, val):
         """
@@ -12,7 +13,10 @@ class RandomizedCollection(object):
         :type val: int
         :rtype: bool
         """
-        
+        flag =  val in self.__pos
+        self.__set.append(val)
+        self.__pos[val].add(len(self.__set)-1)
+        return flag
 
     def remove(self, val):
         """
@@ -20,14 +24,24 @@ class RandomizedCollection(object):
         :type val: int
         :rtype: bool
         """
+        if self.__pos[val]:
+            newval = self.__set[-1]
+            i = self.__pos[val].pop()
+            self.__set[i] = newval
+            if self.__pos[newval]:
+                self.__pos[newval].add(i)
+                self.__pos[newval].discard(len(self.__set)-1)
+            self.__set.pop()
+            return True
+        else:
+            return False
         
-
     def getRandom(self):
         """
         Get a random element from the collection.
         :rtype: int
         """
-        
+        return random.choice(self.__set)
 
 
 # Your RandomizedCollection object will be instantiated and called as such:
