@@ -2,6 +2,10 @@
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
 
+## 11.10
+- 716题. Max Stack. 用两个stack,一个记录数，一个记录最大值，在`popMax()`这个函数里要重新更新self.max,方法是调用自身的pop()和push(). `popMax()`时间复杂度O(n).
+- 724题. Find Pivot Index. 定义两个变量，left和right,代表左右的和，一个循环判断即可。
+
 ## 11.9
 - 717题. 1-bit and 2-bit Characters.弱智题，从头开始数，1就+2，0就+1，如果`i == len(n) - 1`说明结尾是0,返回`True`，否则是`10`或者`11`，返回`False`.
 - 696题. Count Binary Substrings.只记录连续的，所以两种办法，第一种是分组，0001111分组称为3，4，res += min(3,4)，这样只需要统计分组，然后求和即可。第二种是用pre, cur记录之前的两组，每当发生变化时候，res += min(pre, cur),然后再更新pre，cur即可，最后加上最后一次的min(pre, cur).
