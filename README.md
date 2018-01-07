@@ -1,6 +1,11 @@
 ###  刷题笔记
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
+## 12.7
+- 10题. Regular Expression Matching. 这题很有意思，`.`匹配任意字符串，`*`代表前一个的个数，包括0, 解法分递归和dp. 递归的解法要注意，'s'是可以为空的，所以在计算`current`的时候需要用`bool(s)`而不是直接用`s[0]`.dp还可以用memo来作缓存，避免重复计算,提高性能.dp时间复杂度是O(TP).
+- 44题. Wildcard Matching.跟上一题几乎一样，但是`*`代表的意思变了，达标匹配任意字符串. dp[n] means the substring s[:n] if match the pattern i.
+- 261题. Graph Valid Tree.解法很多种，可以dfs也可以union find.
+- 684题. Redundant Connection.union find轻松解决.
 
 ## 11.10
 - 716题. Max Stack. 用两个stack,一个记录数，一个记录最大值，在`popMax()`这个函数里要重新更新self.max,方法是调用自身的pop()和push(). `popMax()`时间复杂度O(n).
