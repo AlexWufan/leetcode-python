@@ -6,6 +6,7 @@
 - 771题. Jewels and Stones. 用`set()`，查询时间`O(1)`.时间复杂度`O(len(J))`.
 - 804题. Unique Morse Code Words. `set`和ord()即可。Time Complexity: `O(S)`, S is the sum of the lengths of words in words.
 - 760题. Find Anagram Mappings. `hashmap`即可。`O(n)`.
+- 728题. Self Dividing Numbers. 转换为字符串遍历即可,用`all`很简单.
 
 ## 3.20
 - 681题. Next Closest Time. 两种解法，一分钟一分钟的加，然后拼出字符串，`set`这个字符串如果被`set(time)`包含说明可以。另外一种是用这四个字符的product,循环次数少一点。时间复杂度都是`O(1)`.  
