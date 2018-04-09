@@ -4,37 +4,39 @@ class Solution(object):
         :type edges: List[List[int]]
         :rtype: List[int]
         """
-
-        def cycle(v, p):
-            u = p[v]
-            while u != 0:
-                if u == v: return True
-                u = p[u]
-            return False
+        def find(x):
+            return x if g[x] == x else find(g[x])
+        if not edges:
+            return []
+        g = {k:k for k in range(1,len(edges)+1)}
         
-        n = len(edges)
-        p = [0] * (n + 1)
-        
-        ans1 = []
-        ans2 = []
-        dup_p = False
-        
-        for e in edges:
-            u, v = e
-            if p[v] > 0:
-                ans1 = [p[v], v]
-                ans2 = [u, v]
-                dup_p = True
-                e[0] = e[1] = -1
+        candidate1, candidate2 = [-1,-1], [-1,-1]
+        for edge in edges:
+            if g[edge[1]] != edge[1]:
+                candidate1 = [g[edge[1]], edge[1]]
+                candidate2 = [edge[0], edge[1]]
             else:
-                p[v] = u
+                g[edge[1]] = edge[0]
+        print(candidate1,candidate2)
         
-        p = [0] * (n + 1)
+        g = {k:k for k in range(1,len(edges)+1)}
+        for edge in edges:
+            if edge == candidate2:
+                continue
+            x, y = edge[0], edge[1]
+            x_parent = find(x)
+            y_parent = find(y)
+            print(x_parent, y_parent)
+            if x_parent == y_parent:
+                if candidate1[0] == -1:
+                    return edge
+                return candidate1
+            g[y_parent] = x_parent
+        return candidate2
+    
         
-        for u, v in edges:
-            if u < 0: continue
-            p[v] = u
-            if cycle(v, p):
-                return ans1 if dup_p else [u, v]
         
-        return ans2
+
+if __name__=='__main__':
+    asolution = Solution()
+    print(asolution.findRedundantDirectedConnection([[1,2],[2,3],[3,4],[4,1],[1,5]]))
