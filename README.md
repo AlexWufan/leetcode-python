@@ -4,8 +4,8 @@
 ## 4.7
 - 165题. Compare Version Numbers. `split()`,循环比较即可。
 - 685题. Redundant Connection II. <https://leetcode.com/problems/redundant-connection-ii/discuss/108045/cjava-union-find-with-explanation-on>这个解法。具体原理是：  
-- 维护一个`G`保存节点和父节点关系，选出有两个父节点的那个点，记录这两条边(candidateAB)。（有可能没有节点有两个父节点）
-- 然后对于所有的边遍历，对于每一个边的两个节点，`find`父节点，如果相同，而且这时候没有candidate,说明只有环，去掉这条边即可。如果有candidate，有谁去掉谁,也就是说去掉candidateA，如果全部搞完没有parent_x == parent_y的，说明当前已经是树了，没毛病，去掉candidateB即可。
+  - 维护一个`G`保存节点和父节点关系，选出有两个父节点的那个点，记录这两条边(candidateAB)。（有可能没有节点有两个父节点）
+  - 然后对于所有的边遍历，对于每一个边的两个节点，`find`父节点，如果相同，而且这时候没有candidate,说明只有环，去掉这条边即可。如果有candidate，有谁去掉谁,也就是说去掉candidateA，如果全部搞完没有parent_x == parent_y的，说明当前已经是树了，没毛病，去掉candidateB即可。
 
 ## 3.31
 - 771题. Jewels and Stones. 用`set()`，查询时间`O(1)`.时间复杂度`O(len(J))`.
