@@ -1,6 +1,17 @@
 ###  刷题笔记
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
+
+## 4.11
+- 788题. Rotated Digits.转换成字符串，时间复杂度O(nlogn).还可以用dp，dp的时间复杂度是O(n).
+- 341题. Flatten Nested List Iterator.用一个`stack`存，对每一个nestedlist进行开苞,用递归或者while循环判断是否第一个element 的`isInteger()`是否是`True`.
+
+
+## 4.10
+- 812题. Largest Triangle Area.数学问题，已知三点求三角形面积，公式为Helen Equation，不用公式可以用三个三角形相加，时间复杂度`O(n^3)`, 循环可以直接用`itertools.combinations(points,3)`得到。
+- 800题. Similar RGB Color.莫名其妙的题。答案来自discuss.求最相近的颜色，分222分别找最接近的即可。
+- 783题. Minimum Distance Between BST Nodes.In-order traversal即可。也可以写成`list`.时间复杂度O(n).
+
 ## 4.7
 - 165题. Compare Version Numbers. `split()`,循环比较即可。
 - 685题. Redundant Connection II. <https://leetcode.com/problems/redundant-connection-ii/discuss/108045/cjava-union-find-with-explanation-on>这个解法。具体原理是：  
