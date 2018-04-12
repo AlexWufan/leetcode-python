@@ -185,8 +185,7 @@
 - 157题. Read N Characters Given Read4.非常莫名其妙的一道题，主要注意的几个点，`buf`是接受字符的容器，而且大小分配好了，然后因为有可能文件长度比`n`还要小,所以要处理这种情况。做法就是用一个长度为4的`tmp`数组存`read4()`读进来的字符，然后传给`buf`.
 - 532题. K-diff Pairs in an Array. 哈希表, O(n)解法。还要检查k是否小于0.
 - 28题. Implement strStr(). 实现找到第二个字符串在第一个字符串中的起始位置。方法就是双循环，时间复杂度O(m*n)，使用kmp算法可以达到o(m+n)的时间复杂度.
-- 652题. Find Duplicate Subtrees. backtracking，把
-
+- 652题. Find Duplicate Subtrees. 用`dfs`遍历树，存为`string`，放入`hashtable`，value是nodes,然后遍历哈希表里长度大于1的，取出`node`即可。因为要遍历每个节点，每个节点的字符串都要遍历一遍子树，所以要时间O(n^2),空间要O(n^2).
 
 ## 7.28
 - 475题. Heaters. 比较麻烦的一道题, 解法是对每一个house选出来最近的一个heater, 记录距离，然后在所有的距离里选出来一个最大的. 如何对每一个house选最近的heater呢, 可以用下标的方式，也可以用二分法.
