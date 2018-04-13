@@ -1,6 +1,12 @@
 ###  刷题笔记
 # 记录一些刷题细节，很惭愧只做了一点微小的工作
 
+## 4.13
+- 162题. Find Peak Element.Binary search，需要比较`nums[mid]`和`nums[mid+1]`.
+
+
+## 4.12
+- 212题. Word Search II. 用trie tree存word list,然后dfs.
 
 ## 4.11
 - 788题. Rotated Digits.转换成字符串，时间复杂度O(nlogn).还可以用dp，dp的时间复杂度是O(n).
